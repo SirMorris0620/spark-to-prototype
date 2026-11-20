@@ -2071,6 +2071,75 @@ dialog::backdrop{background:rgba(10,15,12,.45)}
 :root[data-theme="dark"] .dm-lead.red{color:#b91c1c}
 .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
 .seg button[aria-selected="true"],.seg button[aria-pressed="true"]{box-shadow:0 0 0 1px var(--border-strong)}
+/* SVG safety: an open stroked path with no fill attribute must never fill black (it draws a wedge). */
+svg path[stroke]:not([fill]):not([d*="z"]):not([d*="Z"]),svg polyline[stroke]:not([fill]){fill:none}
+
+.pvz-grid{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+.pv-code{font-size:12.5px}
+.sl-in{white-space:nowrap;flex-wrap:nowrap}.sl-in b{white-space:nowrap}.controls label{white-space:nowrap}
+.lc-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)!important}.lcOut .kv{grid-template-columns:auto minmax(0,1fr)}.lcOut .kv b{font-family:"Geist",sans-serif;font-weight:600;font-variant-numeric:tabular-nums}
+.wb-hint:empty{display:none}
+/* schematic and wiring guide */
+.gd{border:1px solid var(--border);border-radius:12px;background:var(--s1);margin:10px 0 12px}
+.gd>summary{display:flex;align-items:center;gap:8px;padding:10px 14px;cursor:pointer;font-weight:600;list-style:none}
+.gd>summary::-webkit-details-marker{display:none}
+.gd>summary::after{content:"";margin-left:auto;width:8px;height:8px;border-right:2px solid var(--text-2);border-bottom:2px solid var(--text-2);transform:rotate(45deg);transition:transform .15s var(--ease-out)}
+.gd[open]>summary::after{transform:rotate(-135deg)}
+.gd>summary .ic{color:var(--accent)}
+.gd-body{padding:0 14px 14px}
+.gd-sch{border:1px solid var(--border);border-radius:10px;background:var(--bg);padding:8px;overflow-x:auto}
+.gd-flex{display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;align-items:flex-start}.gd-svg{height:auto;display:block}.gd-uno{width:250px;max-width:100%}.gd-parts{width:340px;max-width:100%}
+.gd-h{font:600 14px "Geist",sans-serif;fill:var(--text)}
+.gd-p{font:500 11.5px "Geist",sans-serif;fill:var(--text-2)}
+.gd-u{font:600 12px "Geist Mono",monospace;fill:#fff}
+.gd-t{font:600 11.5px "Geist Mono",monospace}
+.gd-b{font:700 16px "Geist",sans-serif;fill:var(--text)}
+.gd-s{font:700 13px "Geist",sans-serif;fill:var(--text)}
+.gd-nc{font:italic 500 11px "Geist",sans-serif;fill:var(--text-3)}
+.gd-tables{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:12px}
+@media (max-width:900px){.gd-tables{grid-template-columns:minmax(0,1fr)}}
+.gd-tables h4{margin:4px 0 6px;font-size:.95rem}
+.gd-tables table.t{font-size:.86rem;margin:0}
+.gd-sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;border:1px solid rgba(0,0,0,.25)}
+.gd-net{display:inline-block;font:600 .78rem "Geist Mono",monospace;border:1px solid var(--border-strong);border-radius:5px;padding:0 5px;background:var(--s2)}
+.gd-tables table.t{display:table;width:100%}.gd-t2 td:first-child{white-space:nowrap}
+/* home: one primary action, plain progress, units as scannable lists */
+.hm-head{margin:0 0 16px}.hm-head h1{margin:.1em 0 .2em}
+.hm-next{display:grid;gap:6px;max-width:760px;padding:18px 20px}
+.hm-next h2{margin:0;font-size:1.25rem}.hm-next .explain{margin:0}.hm-next .btn{justify-self:start;margin-top:6px}
+.hm-k{font-size:.85rem;color:var(--text-2);font-weight:500}
+.hm-bar{display:block;height:6px;border-radius:3px;background:var(--s3);overflow:hidden;max-width:420px}
+.hm-bar i{display:block;height:100%;background:var(--accent);border-radius:3px}
+.hm-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:760px;margin:12px 0 8px}
+@media (max-width:640px){.hm-stats{grid-template-columns:1fr}}
+.hm-stat{display:grid;gap:4px;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:var(--s1);color:var(--text);text-decoration:none}
+@media (hover:hover) and (pointer:fine){.hm-stat:hover{border-color:var(--border-strong)}.hm-mod:hover{background:var(--s2)}}
+.hm-sl{font-size:.85rem;color:var(--text-2)}.hm-sv{font-size:.95rem}.hm-sv b{font-size:1.15rem;font-weight:600}
+.hm-h2{margin:26px 0 10px;font-size:1.15rem}
+.hm-units{list-style:none;padding:0;margin:0;display:grid;gap:12px;max-width:900px}
+.hm-unit{border:1px solid var(--border);border-radius:12px;background:var(--s1);padding:14px 16px;max-width:none}
+.hm-uh{display:flex;align-items:center;gap:10px}.hm-uh h3{margin:0;font-size:1.02rem;flex:1}
+.hm-sw{width:10px;height:10px;border-radius:3px;background:var(--uc);flex:none}
+.hm-up{font-size:.85rem;color:var(--text-2)}
+.hm-unit>.explain{margin:4px 0 8px;font-size:.9rem}
+.hm-mods{list-style:none;padding:0;margin:0;border-top:1px solid var(--border)}
+.hm-mods li{max-width:none;margin:0;border-bottom:1px solid var(--border)}.hm-mods li:last-child{border-bottom:0}
+.hm-mod{display:grid;grid-template-columns:22px 38px minmax(0,1fr) auto;gap:8px;align-items:center;padding:8px 6px;color:var(--text);text-decoration:none;border-radius:6px;transition:background-color .15s var(--ease-out)}
+.hm-ms{display:inline-grid;place-items:center;color:var(--text-3)}.hm-ms .ic{width:16px;height:16px}
+.hm-mod.done .hm-ms{color:var(--ok)}
+.hm-dot{width:9px;height:9px;border-radius:50%;border:1.6px solid var(--border-strong)}
+.hm-mod.doing .hm-dot{border-color:var(--accent);background:var(--accent)}
+.hm-mid{color:var(--text-2);font-size:.88rem}.hm-mt{min-width:0}.hm-mm{color:var(--text-2);font-size:.85rem;white-space:nowrap}
+.hm-mod.locked{color:var(--text-3)}
+.hm-tip{margin-top:18px}
+/* quieter assistant button: secondary weight, it is not the page's main action */
+.ai-fab,:root[data-theme="dark"] .ai-fab{background:var(--s1);color:var(--text);border:1px solid var(--border-strong);box-shadow:0 6px 18px -10px rgba(0,0,0,.35);font-weight:500;padding:10px 16px}
+.ai-fab .ic,.ai-fab svg{color:var(--accent)}
+.mod-hero::after{display:none}.mod-hero{border-top:1px solid var(--border)}.mod-hero .ring-big{top:18px}
+.banner{background:var(--warn-soft);color:var(--text);border-bottom:1px solid color-mix(in srgb,var(--warn) 30%,transparent)}
+.lab.sandbox{border-color:var(--border-strong)}
+.u-chip{background:var(--s2)!important;color:var(--text)!important;border:1px solid var(--border);display:inline-flex;align-items:center;gap:6px}.u-chip::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--uc,var(--accent))}
+:root[data-theme="dark"] .gd-sw{border-color:rgba(255,255,255,.4)}
 
 </style>
 </head>
@@ -2496,7 +2565,12 @@ const tryit = h => `<div class="callout try"><b>Try it</b>${h}</div>`;
 const safety = h => `<div class="callout safe"><b>Safety first</b>${h}</div>`;
 const aibox = (t, h) => `<div class="callout aic"><b>${t}</b>${h}</div>`;
 const think = h => `<div class="callout think"><b>Stop and think</b>${h}</div>`;
-const srcs = keys => `<p class="srcline">Sources: ${keys.map(k => { const r = REF[k]; if (!r) return k; const short = r[0].split(".")[0].replace(/\s*\(\d{4}[a-z]?\)|\s*\(n\.d\.[^)]*\)/, ""); return r[1] ? `<a href="${r[1]}" target="_blank" rel="noopener">${esc(cite(k))}</a>` : esc(cite(k)); }).join(" • ")}</p>`;
+/* APA 7 (8.12): several works in one parenthesis are ordered alphabetically by first author and separated by semicolons;
+   works by the same author are combined, undated works first, then by year; "n.d.-a" style suffixes follow the reference list. */
+const citeSortKey = d => (/^n\.d\./.test(d) ? "0" : "1") + d;
+function citeGroups(keys){ const G = []; keys.forEach(k => { const c = cite(k), au = c.replace(/, [^,]+$/, ""), d = c.slice(au.length + 2); let g = G.find(x => x.au === au); if (!g) G.push(g = {au, ds:[]}); if (!g.ds.some(x => x.d === d)) g.ds.push({d, k}); });
+  G.forEach(g => g.ds.sort((a, b) => citeSortKey(a.d) < citeSortKey(b.d) ? -1 : 1)); return G.sort((a, b) => a.au.replace(/^The /, "").localeCompare(b.au.replace(/^The /, ""))); }
+const srcs = keys => `<p class="srcline">Sources: (${citeGroups(keys).map(g => esc(g.au) + ", " + g.ds.map(x => { const r = REF[x.k]; return r && r[1] ? `<a href="${r[1]}" target="_blank" rel="noopener">${esc(x.d)}</a>` : esc(x.d); }).join(", ")).join("; ")})</p>`;
 function citeAuthor(a){ a = a.replace(/\s*\((?:Ed|Eds)\.\)\.?/g, "").trim(); const toks = a.split(/,\s*&\s*|,\s*|\s&\s/).map(x => x.trim()).filter(Boolean), ini = x => /^(?:[A-Z][a-z]?\.[\s-]?)+$/.test(x);
   if (!toks.some(ini)) return [a.replace(/\.$/, "")];
   const names = []; for (let i = 0; i < toks.length; i++){ if (ini(toks[i])) continue; names.push(toks[i].replace(/\.$/, "")); }
@@ -2506,7 +2580,7 @@ function cite(k){ const r = REF[k]; if (!r) return k; const m = r[0].match(/^(.+
   const names = citeAuthor(m[1]); const au = names.length >= 3 ? names[0] + " et al." : names.length === 2 ? names[0] + " & " + names[1] : names[0];
   return `${au.replace(/\s*\[[^\]]*\]/g, "")}, ${m[2]}`; }
 /* in-text citation for one or more keys by the same author: ct("a","b") -> "Author, n.d.-a, n.d.-b" */
-function ct(...keys){ const cs = keys.map(cite); const au = cs[0].replace(/, [^,]+$/, ""); if (cs.every(c => c.startsWith(au + ", "))) return au + ", " + cs.map(c => c.slice(au.length + 2)).sort().join(", "); return cs.join("; "); }
+function ct(...keys){ return citeGroups(keys).map(g => g.au + ", " + g.ds.map(x => x.d).join(", ")).join("; "); }
 const fig = (inner, cap, credit) => `<figure class="fig">${inner}<figcaption>${cap}${credit ? ` <span class="credit">${credit}</span>` : ""}</figcaption></figure>`;
 const code = (lang, src, title) => `<div class="codebox"><div class="codehead"><span>${esc(title || lang)}</span><button class="btn small copybtn" type="button">Copy</button></div><pre class="code"><code>${esc(src.replace(/^\n/, ""))}</code></pre></div>`;
 const dlcode = (name, src, title) => `<div class="codebox"><div class="codehead"><span>${esc(title || name)}</span><span><button class="btn small copybtn" type="button">Copy</button> <button class="btn small dlbtn" type="button" data-name="${esc(name)}">Download</button></span></div><pre class="code"><code>${esc(src.replace(/^\n/, ""))}</code></pre></div>`;
@@ -3354,14 +3428,14 @@ function unoSVG(opts){ opts = opts || {};
   const P = UNO_HEADERS, hdr = (x1, x2, y) => `<rect x="${x1 - 50}" y="${y - 52}" width="${x2 - x1 + 100}" height="104" rx="8" fill="#141414"/><rect x="${x1 - 50}" y="${y - 52}" width="${x2 - x1 + 100}" height="104" rx="8" fill="none" stroke="#000" stroke-width="6"/>`;
   const sock = n => { const [x, y] = P[n]; return `<g class="sock uno-s" data-s="uno:${n}"><rect class="sk-hole" x="${x - 22}" y="${y - 22}" width="44" height="44" rx="4" fill="#050505" stroke="#3a3a3a" stroke-width="4"/><rect class="hit" x="${x - 48}" y="${y - 48}" width="96" height="96" fill="transparent"/></g>`; };
   const lab = (n, txt, up) => { const [x, y] = P[n]; return `<text x="${x}" y="${up ? y - 90 : y + 92}" transform="rotate(-90 ${x} ${up ? y - 90 : y + 92})" text-anchor="${up ? "start" : "end"}" class="uno-lbl">${txt}</text>`; };
-  const dig = []; for (let d = 0; d <= 13; d++){ const t = (PWM_PINS.includes("D" + d) ? "~" : "") + d + (d === 1 ? " TX▸" : d === 0 ? " RX◂" : ""); dig.push(lab("D" + d, t, false)); }
+  const dig = []; for (let d = 0; d <= 13; d++){ const t = (PWM_PINS.includes("D" + d) ? "~" : "") + d + (d === 1 ? " TX" : d === 0 ? " RX" : ""); dig.push(lab("D" + d, t, false)); }
   const smd = (x, y, w, h, c) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="6" fill="${c || "#2b2b2b"}"/><rect x="${x}" y="${y}" width="${Math.min(w, h) * 0.32}" height="${h}" fill="#c9c9c9"/><rect x="${x + w - Math.min(w, h) * 0.32}" y="${y}" width="${Math.min(w, h) * 0.32}" height="${h}" fill="#c9c9c9"/>`;
   return `<g class="uno" transform="translate(${opts.x || 0} ${opts.y || 0})">
    <defs><linearGradient id="unoUsb" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#eef1f3"/><stop offset=".5" stop-color="#b8bec3"/><stop offset="1" stop-color="#e3e6e8"/></linearGradient>
     <linearGradient id="unoPcb" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#0d8a92"/><stop offset="1" stop-color="#0a747b"/></linearGradient>
     <radialGradient id="ledGlowY" r=".5"><stop offset="0" stop-color="#ffe680"/><stop offset="1" stop-color="#ffb000" stop-opacity="0"/></radialGradient>
     <radialGradient id="ledGlowG" r=".5"><stop offset="0" stop-color="#b9ffb0"/><stop offset="1" stop-color="#22c55e" stop-opacity="0"/></radialGradient></defs>
-   <path d="M30 0 H2540 L2600 60 V500 L2700 600 V2000 L2600 2100 H30 Q0 2100 0 2070 V30 Q0 0 30 0 Z" fill="url(#unoPcb)" stroke="#06585e" stroke-width="10"/>
+   <path d="M30 0 H2650 L2700 50 V2000 L2600 2100 H30 Q0 2100 0 2070 V30 Q0 0 30 0 Z" fill="url(#unoPcb)" stroke="#06585e" stroke-width="10"/>
    ${[[600, 100], [550, 2000], [2600, 700], [2600, 1800]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="62" fill="#f4f4f4" stroke="#c9b26a" stroke-width="14"/><circle cx="${x}" cy="${y}" r="44" fill="var(--wb-bg)"/>`).join("")}
    <!-- traces for texture -->
    <g stroke="#0e9aa3" stroke-width="10" fill="none" opacity=".75"><path d="M1240 160 V330 H1180 V520"/><path d="M1340 160 V360 H1500 V1300"/><path d="M1440 160 V400 H1560 V1300"/><path d="M1900 160 V430 H1980 V1300"/><path d="M2000 160 V460 H2100 V1300"/><path d="M2100 1940 V1700"/><path d="M2200 1940 V1700"/><path d="M1400 1940 V1660 H1180 V1560"/><path d="M380 900 H880 V780"/><path d="M380 1100 H1100 V1250"/></g>
@@ -3518,7 +3592,7 @@ function to92(L, label, hot){ const m = [(L[0][0] + L[2][0]) / 2, (L[0][1] + L[2
 function partPins(P, o){ const T = PART_TYPES[P.type]; return T.pinXY.map(([px, py], i) => `<g class="sock part-s" data-s="part:${P.id}:${T.pins[i]}"><rect class="sk-hole" x="${o[0] + px - 30}" y="${o[1] + py - 30}" width="60" height="60" rx="6" fill="#111" stroke="#d4af37" stroke-width="10"/><rect class="hit" x="${o[0] + px - 55}" y="${o[1] + py - 55}" width="110" height="110" fill="transparent"/></g>`).join(""); }
 
 /* ---- wires ---- */
-const WIRE_COLORS = {red:"#e11d48", black:"#1f1f1f", blue:"#2563eb", green:"#16a34a", yellow:"#eab308", orange:"#f97316", white:"#f1f5f9", purple:"#be123c", brown:"#7c4a1e", gray:"#6b7280"};
+const WIRE_COLORS = {red:"#e11d48", black:"#1f1f1f", blue:"#2563eb", green:"#16a34a", yellow:"#eab308", orange:"#f97316", white:"#f1f5f9", purple:"#8b3fc7", brown:"#7c4a1e", gray:"#6b7280"};
 function wirePath(a, b, k){ const d = vsub(b, a), len = vlen(d); const bend = Math.min(260, 60 + len * 0.12) * (k % 2 ? 1 : -1); const n = [-d[1] / (len || 1), d[0] / (len || 1)];
   const m = [(a[0] + b[0]) / 2 + n[0] * bend, (a[1] + b[1]) / 2 + n[1] * bend]; return `M${a[0]} ${a[1]} Q${m[0]} ${m[1]} ${b[0]} ${b[1]}`; }
 function wireSVG(w, a, b, k, sel){ const col = WIRE_COLORS[w.color] || w.color || "#2563eb", d = wirePath(a, b, k);
@@ -3539,6 +3613,110 @@ function lcdScreenSVG(S, color, X, Y, W, H){ const th = LCD_THEME[color] || LCD_
     else if (ch0 && ch0 !== " ") s += `<text x="${(cx + w / 2).toFixed(0)}" y="${(cy + h * 0.8).toFixed(0)}" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-weight="700" font-size="${(h * 0.86).toFixed(0)}" textLength="${(w * 0.78).toFixed(0)}" lengthAdjust="spacingAndGlyphs" fill="${th.ink}" opacity="${alpha.toFixed(2)}">${ch0 === "<" ? "&lt;" : ch0 === ">" ? "&gt;" : ch0 === "&" ? "&amp;" : ch0}</text>`;
     if (v.disp && v.cur && v.cur.r === r && v.cur.c === c){ if (v.blink) s += `<rect x="${cx.toFixed(0)}" y="${cy.toFixed(0)}" width="${w.toFixed(0)}" height="${h.toFixed(0)}" fill="${th.ink}" opacity="${(alpha * 0.55).toFixed(2)}"/>`; if (v.curOn) s += `<rect x="${cx.toFixed(0)}" y="${(cy + h - h / 8).toFixed(0)}" width="${w.toFixed(0)}" height="${(h / 8 - 2).toFixed(0)}" fill="${th.ink}" opacity="${alpha.toFixed(2)}"/>`; } }
   return s; }
+
+/* ==== js/guide.js ==== */
+/* Schematic and wiring guide for any workbench circuit, generated from the same circuit data the workbench uses,
+   so it can never disagree with what is on the board. The schematic uses net labels (as in KiCad and Eagle):
+   every pin that shows the same label is connected. The wiring guide lists where each part goes and every jumper. */
+const GD_PIN = {   // which side of the symbol each pin is drawn on, for two-terminal and three-terminal parts
+  resistor:[["1", "L"], ["2", "R"]], ldr:[["1", "L"], ["2", "R"]], led:[["A", "L"], ["K", "R"]], diode:[["A", "L"], ["K", "R"]],
+  cap:[["P", "L"], ["N", "R"]], piezo:[["P", "L"], ["N", "R"]], motor:[["M1", "L"], ["M2", "R"]], battery:[["P", "L"], ["N", "R"]],
+  pot:[["1", "L"], ["3", "R"], ["W", "B"]], npn:[["B", "L"], ["C", "T"], ["E", "B"]], button:[["1", "L"], ["2", "R"]]};
+const GD_TAG = {GND:["#374151", "#fff"], "5V":["#dc2626", "#fff"], "3.3V":["#ea580c", "#fff"], VBAT:["#b91c1c", "#fff"]};
+
+function gdNets(c){
+  const N = buildNets(c), names = {}, members = {}; let k = 0;
+  const legs = []; c.parts.forEach(p => partLegs(c, p).forEach((s, i) => { if (s) legs.push([p, i, s]); }));
+  legs.forEach(([p, i, s]) => { const n = N.net(s); (members[n] = members[n] || []).push([p, i]); });
+  const bat = c.parts.find(p => p.type === "battery"), batP = bat ? N.net(partLegs(c, bat)[0]) : null;
+  const name = s => { if (!s) return "nc"; const n = N.net(s); if (names[n]) return names[n];
+    let nm = n === N.gnd ? "GND" : n === N.v5 ? "5V" : n === N.v33 ? "3.3V" : n === batP ? "VBAT" : null;
+    if (!nm){ const hits = unoPinOn(c, s, N).filter(h => /^(D\d+|A\d)$/.test(h)); if (hits.length) nm = hits[0] + (hits[0] === "A4" ? " (SDA)" : hits[0] === "A5" ? " (SCL)" : ""); }
+    if (!nm) nm = (members[n] || []).length > 1 ? "N" + (++k) : "nc";
+    return (names[n] = nm); };
+  return {N, name, members};
+}
+const gdPartTitle = (c, p) => { const t = partName(c, p).replace(/^the /, ""); return t.charAt(0).toUpperCase() + t.slice(1); };
+const gdValue = p => p.type === "resistor" ? fmtOhm(+p.props.r) : p.type === "led" ? "" : p.type === "pot" ? "10 kΩ" : p.type === "cap" ? (p.props.c || "") : p.type === "battery" ? (p.props.v || 6) + " V" : "";
+
+/* symbol bodies drawn around (0,0); pins end at ±70 (L/R), ±50 (T/B) */
+function gdBody(p){ const L = (d, f) => `<path d="${d}" fill="${f || "none"}" stroke="var(--ink)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>`;
+  switch (p.type){
+    case "resistor": return L("M-70 0 H-36 l4 -9 l8 18 l8 -18 l8 18 l8 -18 l8 18 l8 -18 l8 18 l4 -9 H70");
+    case "ldr": return L("M-70 0 H-36 l4 -9 l8 18 l8 -18 l8 18 l8 -18 l8 18 l8 -18 l8 18 l4 -9 H70") + L("M-26 -34 l14 14 M-26 -22 l0 -12 l12 0") + L("M-6 -34 l14 14 M-6 -22 l0 -12 l12 0");
+    case "pot": return L("M-70 0 H-36 l4 -9 l8 18 l8 -18 l8 18 l8 -18 l8 18 l8 -18 l8 18 l4 -9 H70") + L("M0 50 V14") + L("M-6 22 L0 12 L6 22 Z", "var(--ink)");
+    case "led": return L("M-70 0 H-14 M14 0 H70") + L("M-14 -14 V14 L14 0 Z", "var(--ink)") + L("M14 -14 V14") + L("M2 -20 l12 -12 M8 -32 h6 v6 M14 -16 l12 -12 M20 -28 h6 v6");
+    case "diode": return L("M-70 0 H-14 M14 0 H70") + L("M-14 -14 V14 L14 0 Z", "var(--ink)") + L("M14 -14 V14");
+    case "cap": return L("M-70 0 H-6 M6 0 H70 M-6 -18 V18") + L("M6 -18 Q14 0 6 18") + `<text x="-18" y="-20" class="gd-s">+</text>`;
+    case "piezo": return L("M-70 0 H-16 M16 0 H70") + L("M-16 -14 H16 V14 H-16 Z") + L("M-24 -22 Q0 -40 24 -22") + `<text x="-26" y="-12" class="gd-s">+</text>`;
+    case "motor": return L("M-70 0 H-22 M22 0 H70") + `<circle r="22" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.2"/><text y="6" text-anchor="middle" class="gd-b">M</text>`;
+    case "battery": return L("M-70 0 H-8 M8 0 H70 M-8 -20 V20 M8 -10 V10 M-20 -26 h8 M-16 -30 v8") ;
+    case "button": return L("M-70 0 H-26 M26 0 H70") + `<circle cx="-24" cy="0" r="3" fill="var(--ink)"/><circle cx="24" cy="0" r="3" fill="var(--ink)"/>` + L("M-28 -12 H28 M0 -12 V-26 M-10 -26 H10");
+    case "npn": return `<circle r="26" fill="none" stroke="var(--ink)" stroke-width="2.2"/>` + L("M-50 0 H-8 M-8 -16 V16 M-8 -7 L20 -24 V-50 M-8 7 L20 24 V50") + L("M8 15 L20 24 L7 25 Z", "var(--ink)");
+  }
+  return ""; }
+
+function gdSymbol(c, p, nm){ /* returns {w, h, svg} for one part, drawn at (0,0) top-left */
+  const T = PART_TYPES[p.type], legs = partLegs(c, p), title = gdPartTitle(c, p), val = gdValue(p);
+  const tag = (x, y, net, side) => { const t = net, nc = t === "nc"; if (nc) return `<text x="${side === "L" ? x - 6 : x + 6}" y="${y + 4}" text-anchor="${side === "L" ? "end" : "start"}" class="gd-nc">not connected</text>`;
+    const col = GD_TAG[t] || (/^[DA]\d/.test(t) ? ["var(--accent)", "var(--on-accent)"] : ["var(--surface)", "var(--ink)"]), w = 12 + t.length * 7.4;
+    const x0 = side === "L" ? x - w : side === "R" ? x : x - w / 2, y0 = side === "B" ? y : side === "T" ? y - 20 : y - 10;
+    return `<rect x="${x0}" y="${y0}" width="${w}" height="20" rx="5" fill="${col[0]}" stroke="${col[0] === "var(--surface)" ? "var(--ink)" : col[0]}" stroke-width="1.2"/><text x="${x0 + w / 2}" y="${y0 + 14}" text-anchor="middle" class="gd-t" style="fill:${col[1]}">${esc(t)}</text>`; };
+  if (GD_PIN[p.type]){ const npn = p.type === "npn", W = 330, H = npn ? 180 : 150, cx = W / 2, cy = npn ? 96 : 72; let s = `<text x="${cx}" y="16" text-anchor="middle" class="gd-h">${esc(title)}</text>`;
+    s += `<g transform="translate(${cx} ${cy})">${gdBody(p)}</g>`;
+    GD_PIN[p.type].forEach(([pin, side]) => { const i = T.pins.indexOf(pin), net = nm(legs[i]), lab = T.pinLabel[i].replace(/ \(.*\)/, "");
+      const px = side === "L" ? cx - 70 : side === "R" ? cx + 70 : cx + (p.type === "npn" ? 20 : 0), py = side === "T" ? cy - 50 : side === "B" ? cy + 50 : cy;
+      const ex = side === "L" ? px - 14 : side === "R" ? px + 14 : px, ey = side === "T" ? py - 6 : side === "B" ? py + 6 : py;
+      s += `<path d="M${px} ${py} L${ex} ${ey}" stroke="var(--ink)" stroke-width="2.2"/>` + tag(ex, ey, net, side);
+      if (side === "L" || side === "R") s += `<text x="${side === "L" ? px + 4 : px - 4}" y="${py + 22}" text-anchor="${side === "L" ? "start" : "end"}" class="gd-p">${esc(lab)}</text>`;
+      else s += `<text x="${px - 8}" y="${side === "T" ? py + 14 : py - 6}" text-anchor="end" class="gd-p">${esc(pin === "W" ? "wiper" : lab)}</text>`; });
+    if (val && !title.includes(val)) s += `<text x="${cx}" y="${H - 6}" text-anchor="middle" class="gd-p">${esc(val)}</text>`;
+    return {w:W, h:H, svg:s}; }
+  /* modules and ICs: a box with its pins on the left */
+  const pins = T.pins.map((n, i) => [n, i]).filter(([n, i]) => !(p.type === "lcd1602" && /^D[0-3]$/.test(n) && nm(legs[i]) === "nc"));
+  const W = 330, H = 40 + pins.length * 24 + 12, bx = 150; let s = `<text x="${W / 2}" y="16" text-anchor="middle" class="gd-h">${esc(title)}</text>`;
+  s += `<rect x="${bx}" y="28" width="130" height="${pins.length * 24 + 12}" rx="8" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.2"/>`;
+  pins.forEach(([n, i], k) => { const y = 46 + k * 24, net = nm(legs[i]); s += `<path d="M${bx - 22} ${y} H${bx}" stroke="var(--ink)" stroke-width="2.2"/><text x="${bx + 8}" y="${y + 4}" class="gd-p">${esc(T.pinLabel[i].replace(/ \(.*?\)$/, "").slice(0, 16))}</text>` + tag(bx - 22, y, net, "L"); });
+  if (p.type === "lcd1602") s += `<text x="${bx + 65}" y="${H - 2}" text-anchor="middle" class="gd-p">D0–D3 not used (4-bit mode)</text>`;
+  return {w:W, h:H + (p.type === "lcd1602" ? 10 : 0), svg:s}; }
+
+function gdSchematic(c){
+  const {name} = gdNets(c), nm = s => name(s);
+  // UNO block: every header pin whose net reaches a part
+  const used = []; const partNets = new Set(); c.parts.forEach(p => partLegs(c, p).forEach(s => { if (s) partNets.add(nm(s)); }));
+  const order = ["5V","3V3","GND1","VIN"].concat(Array.from({length:14}, (_, d) => "D" + d), Array.from({length:6}, (_, a) => "A" + a));
+  const seen = new Set(); order.forEach(h => { const n = nm("uno:" + h); if (n && n !== "nc" && partNets.has(n) && !seen.has(n)){ seen.add(n); used.push([h, n]); } });
+  const uh = Math.max(120, 50 + used.length * 26);
+  let uno = `<rect x="20" y="28" width="120" height="${uh - 20}" rx="10" fill="#0f6e74"/><text x="80" y="20" text-anchor="middle" class="gd-h">Arduino UNO</text>`;
+  used.forEach(([h, n], k) => { const y = 54 + k * 26, lab = h === "GND1" ? "GND" : h === "3V3" ? "3.3V" : h; const col = GD_TAG[n] || (/^[DA]\d/.test(n) ? ["var(--accent)", "var(--on-accent)"] : ["var(--surface)", "var(--ink)"]), w = 12 + n.length * 7.4;
+    uno += `<text x="130" y="${y + 4}" text-anchor="end" class="gd-u">${esc(lab)}</text><path d="M140 ${y} H166" stroke="var(--ink)" stroke-width="2.2"/><rect x="166" y="${y - 10}" width="${w}" height="20" rx="5" fill="${col[0]}" stroke="${col[0] === "var(--surface)" ? "var(--ink)" : col[0]}" stroke-width="1.2"/><text x="${166 + w / 2}" y="${y + 4}" text-anchor="middle" class="gd-t" style="fill:${col[1]}">${esc(n)}</text>`; });
+  // parts in two columns to the right of the UNO block
+  const syms = c.parts.map(p => gdSymbol(c, p, nm)); let y = 0, out = "";
+  syms.forEach(sy => { out += `<g transform="translate(0 ${y})">${sy.svg}</g>`; y += sy.h + 14; });
+  return `<div class="gd-flex" role="img" aria-label="Schematic diagram of this circuit"><svg class="gd-svg gd-uno" viewBox="0 0 250 ${uh + 20}" aria-hidden="true">${uno}</svg><svg class="gd-svg gd-parts" viewBox="0 0 340 ${y + 4}" aria-hidden="true">${out}</svg></div>`;
+}
+
+function gdEndName(c, s){ const m = s.match(/^part:([^:]+):(.+)$/); if (m){ const p = c.parts.find(q => q.id === m[1]); if (!p) return s; const T = PART_TYPES[p.type]; return `${gdPartTitle(c, p)}: ${T.pinLabel[T.pins.indexOf(m[2])] || m[2]}`; }
+  const r = s.match(/^bb:(tp|tn|bp|bn)(\d+)$/); if (r) return `${{tp:"top + rail", tn:"top − rail", bp:"bottom + rail", bn:"bottom − rail"}[r[1]]} (hole ${r[2]})`;
+  return s.startsWith("uno:") ? "UNO " + UNO_PIN_LABEL(s.slice(4)) : "hole " + holeName(s); }
+
+function gdWiring(c){
+  const {name} = gdNets(c);
+  const rows = c.parts.map(p => { const T = PART_TYPES[p.type], legs = partLegs(c, p);
+    const where = T.place === "free" ? "Off the breadboard, in the modules area" : legs.map((s, i) => `${esc(T.pinLabel[i])} → <b>${esc(holeName(s))}</b>`).join("<br>");
+    return `<tr><td><b>${esc(gdPartTitle(c, p))}</b>${gdValue(p) && !gdPartTitle(c, p).includes(gdValue(p)) ? `<br><span class="explain">${esc(gdValue(p))}</span>` : ""}</td><td>${where}</td></tr>`; }).join("");
+  const wires = c.wires.map((w, i) => { const col = WIRE_COLORS[w.color] || WIRE_COLORS.red, net = name(w.a);
+    return `<tr><td class="num"><span class="gd-sw" style="background:${col}" title="${esc(w.color || "red")} wire"></span>${i + 1}</td><td>${esc(gdEndName(c, w.a))}</td><td>${esc(gdEndName(c, w.b))}</td><td><span class="gd-net">${esc(net === "nc" ? "—" : net)}</span></td></tr>`; }).join("");
+  return `<div class="gd-tables"><div><h4>1. Place the parts</h4><table class="t gd-t1"><tr><th>Part</th><th>Legs go in</th></tr>${rows}</table></div>
+    <div><h4>2. Add the jumper wires</h4>${c.wires.length ? `<table class="t gd-t2"><tr><th>Wire</th><th>From</th><th>To</th><th>Joins</th></tr>${wires}</table>` : `<p class="explain">No jumper wires.</p>`}</div></div>`;
+}
+
+function circuitGuideHTML(c, open){
+  if (!c || !c.parts || !c.parts.length) return "";
+  return `<details class="gd"${open ? " open" : ""}><summary>${ic("board")}<span>Schematic and wiring guide</span></summary>
+    <div class="gd-body"><p class="explain">The schematic shows how the parts are connected. Pins with the <b>same label</b> are joined (for example, every <span class="gd-net">GND</span> is one connection). The tables show exactly where each part and wire goes on the board.</p>
+    <div class="gd-sch">${gdSchematic(c)}</div>${gdWiring(c)}</div></details>`;
+}
 
 /* ==== js/bench.js ==== */
 /* ============ THE WORKBENCH: an interactive UNO + breadboard you can build on, power, probe, and program ============ */
@@ -3615,7 +3793,7 @@ function createBench(el, opts){
     svg.innerHTML = `<defs><filter id="wbBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="60"/></filter>
       <pattern id="wbMat" width="200" height="200" patternUnits="userSpaceOnUse"><path d="M200 0 H0 V200" fill="none" stroke="var(--wb-grid)" stroke-width="4"/></pattern></defs>
       <rect x="${-4000}" y="${-4000}" width="${G.W + 8000}" height="${G.H + 8000}" fill="url(#wbMat)" class="wb-bgr"/>
-      <text x="${G.free[0]}" y="${G.free[1] - 60}" class="wb-area">Modules and power off the breadboard: connect them with jumper wires</text>
+      ${!B.locked || free.length ? `<text x="${G.free[0]}" y="${G.free[1] - 60}" class="wb-area">Modules: connect them with jumper wires</text>` : ""}
       <g class="wb-content">${unoSVG({x:G.uno[0], y:G.uno[1], id:uid})}${breadboardSVG(c.cols, G.bb[0], G.bb[1])}
       <g class="wb-parts">${bbParts.filter(p => !tall(p)).map(partSvg).join("")}</g>
       <g class="wb-wires">${c.wires.map((w, i) => { const a = sockXY(w.a), b = sockXY(w.b); return a && b ? wireSVG(w, a, b, i, sel && sel.wire === w.id) : ""; }).join("")}</g>
@@ -3673,7 +3851,7 @@ function createBench(el, opts){
   B.serialBlink = () => { const n = svg.querySelector("#" + CSS.escape(uid + "-led-TX")); if (n){ n.setAttribute("opacity", 1); clearTimeout(B._tx); B._tx = setTimeout(() => n.setAttribute("opacity", 0), 60); } };
   /* ---------- messages ---------- */
   function renderMsgs(){ const box = root.querySelector(".wb-msgs"); const an = c.powered ? B.analysis() : null; const W = an ? an.warn : [];
-    const extra = []; if (!c.powered) extra.push({level:"info", msg:"The board is unplugged. Press <b>Upload</b> in the code panel (or the USB button) to power it."});
+    const extra = []; if (!c.powered && !opts.explore) extra.push({level:"info", msg:"The board is unplugged. Press <b>USB off</b> at the top right of the workbench (or <b>Upload</b> in the code panel) to power it."});
     if (an && an.short) extra.push({level:"bad", msg:"Power is cut until you remove the short circuit."});
     const items = W.concat(extra); const key = JSON.stringify(items.map(x => x.msg)); if (key === lastWarnKey) return; lastWarnKey = key;
     box.innerHTML = items.map(w => `<div class="wb-msg ${w.level}">${ic(w.level === "bad" ? "stop" : w.level === "warn" ? "alert" : "info")}<span>${w.msg}</span>${w.part && c.burnt[w.part] ? ` <button class="btn small" data-replace="${w.part}">Replace part</button>` : ""}</div>`).join("");
@@ -3838,7 +4016,7 @@ function createBench(el, opts){
   B.destroy = () => { try { if (toneNode) toneNode.o.stop(); } catch(e){} };
   B.isAlive = () => document.body.contains(root);
   if ("ResizeObserver" in window){ let lw = 0; new ResizeObserver(() => { const w = el.clientWidth; if (Math.abs(w - lw) > 40){ const was = vertical; lw = w; if ((w < 640) !== was){ render(); } } }).observe(el); }
-  render(); setHint(B.locked ? lockedHint(c) : (opts.xl ? "Choose a part in the parts bar above" : "Choose a part on the left") + ", or tap a hole to start a jumper wire. Press ? for a how-to guide.");
+  render(); setHint(opts.explore ? "" : B.locked ? lockedHint(c) : (opts.xl ? "Choose a part in the parts bar above" : "Choose a part on the left") + ", or tap a hole to start a jumper wire. Press ? for a how-to guide.");
   return B;
 }
 /* ---------- how to use the workbench (sandbox guide and the ? button) ---------- */
@@ -3995,7 +4173,7 @@ function mountLab(el, id){
   const me = user ? user.email : "guest";
   el.innerHTML = `<div class="lab" id="lab-${id}"><div class="lab-head"><div><span class="lab-kind">${def.code === false ? "Prototyping lab" : def.locked ? "Programming lab" : "Build and code lab"}</span><h3>${esc(def.title)}</h3>${def.story ? `<p class="lab-story">${def.story}</p>` : ""}</div><span class="lab-badge" ${act(id) === "pass" ? "" : "hidden"}>${ic("check")}Passed</span></div>
     <div class="lab-task">${def.task}${def.criteria ? `<p class="explain"><b>You pass when:</b></p><ul class="lab-crit">${def.criteria.map(x => `<li>${x}</li>`).join("")}</ul>` : ""}${def.ask ? `<div class="lab-ask">${def.ask.map(q => `<label class="lab-q"><span>${q.label}</span><span class="lab-qin"><input type="number" step="any" inputmode="decimal" data-k="${q.k}" value="${esc(store.get(`s2p_lab_${id}_a_${me}`, {})[q.k] ?? "")}"> ${esc(q.unit || "")}</span></label>`).join("")}</div>` : ""}</div>
-    <div class="lab-bench"></div>${def.code === false ? "" : `<div class="lab-ide"></div>`}
+    ${def.locked ? circuitGuideHTML(def.circuit, true) : ""}<div class="lab-bench"></div>${def.code === false ? "" : `<div class="lab-ide"></div>`}
     <div class="lab-checks"><div class="controls"><button class="btn primary lab-go" type="button">Check my work</button>${def.solution ? `<button class="btn lab-sol" type="button">Show a working circuit</button>` : ""}${def.answer ? `<button class="btn lab-ans" type="button">Show a model answer</button>` : ""}<button class="btn lab-ai" type="button">Ask Spark for a hint</button></div><div class="lab-res" aria-live="polite"></div><div class="lab-model" hidden></div></div></div>`;
   const benchKey = `s2p_lab_${id}_c_${me}`, codeKey = `s2p_lab_${id}_k_${me}`;
   const bench = createBench(el.querySelector(".lab-bench"), {circuit:def.circuit || newCircuit(), locked:!!def.locked, storeKey:def.locked ? null : benchKey, palette:def.palette, meter:!!def.meter, env:def.env, actId:id});
@@ -4080,7 +4258,7 @@ function ixPlay(freq, ms){ if (store.get("s2p_mute", false)) return; try { const
 function ixStop(){ ixPlay(0); }
 /* a small "locked workbench" demo: a pre-built circuit with a sketch, for guided examples */
 function mountDemo(el, id){ const d = DEMOS[id]; if (!d){ el.innerHTML = `<p class="explain">(Demo “${esc(id)}” is coming soon.)</p>`; return; }
-  el.innerHTML = `<div class="demo"><div class="demo-head"><span class="lab-kind">Try the guided example</span><b>${esc(d.title)}</b></div><div class="lab-bench"></div><div class="lab-ide"></div></div>`;
+  el.innerHTML = `<div class="demo"><div class="demo-head"><span class="lab-kind">Try the guided example</span><b>${esc(d.title)}</b></div>${circuitGuideHTML(d.circuit, true)}<div class="lab-bench"></div><div class="lab-ide"></div></div>`;
   const bn = createBench(el.querySelector(".lab-bench"), {circuit:d.circuit, locked:true, meter:!!d.meter, env:d.env});
   createIDE(el.querySelector(".lab-ide"), {bench:bn, code:d.code, storeKey:"s2p_demo_" + id + "_" + (user ? user.email : "g"), fileName:id, onRun:() => markAct("demo_" + id, "ran")}); }
 const DEMOS = {};
@@ -4133,17 +4311,17 @@ INTERACTIVES.ledViz = function(el){
 INTERACTIVES.buttonViz = function(el){
   let pressed = false, trace = [], bounceUntil = 0, mode = "pulldown";
   el.innerHTML = bench("Inside a push-button", `<div class="controls"><button class="btn primary bvP" type="button">Hold to press</button><div class="seg seg-sm bvM"><button type="button" data-m="pulldown" aria-selected="true">Pull-down resistor</button><button type="button" data-m="pullup" aria-selected="false">INPUT_PULLUP</button></div></div>
-   <svg class="anim-svg" viewBox="0 0 800 330" role="img" aria-label="A tactile push-button: top view with internal connections, side view, and the signal with bounce">
+   <svg class="anim-svg" viewBox="0 0 800 400" role="img" aria-label="A tactile push-button: top view with internal connections, side view, and the signal with bounce">
     <g transform="translate(40 30)"><text x="110" y="0" text-anchor="middle" class="an-l b">Top view: which legs are joined?</text>
      <rect x="30" y="20" width="160" height="160" rx="12" fill="#2f2f2f"/><circle class="bvCap" cx="110" cy="100" r="46" fill="#1e1e1e" stroke="#555" stroke-width="5"/>
      ${[[10, 40, "1"], [190, 40, "2"], [10, 160, "3"], [190, 160, "4"]].map(([x, y, n]) => `<rect x="${x - 14}" y="${y - 8}" width="28" height="16" rx="3" fill="#c4c9cd"/><text x="${x < 100 ? x - 24 : x + 24}" y="${y + 5}" text-anchor="middle" class="an-l b">${n}</text>`).join("")}
      <path d="M10 40 V160" stroke="#16a34a" stroke-width="6" opacity=".85"/><path d="M190 40 V160" stroke="#16a34a" stroke-width="6" opacity=".85"/><path class="bvLink" d="M10 100 H190" stroke="#f59e0b" stroke-width="6" stroke-dasharray="10 8" opacity=".3"/>
-     <text x="110" y="208" text-anchor="middle" class="an-l">green: always connected · orange: only when pressed</text></g>
+     <rect x="0" y="206" width="22" height="6" rx="2" fill="#16a34a"/><text x="30" y="213" class="an-l">always connected</text><rect x="0" y="226" width="22" height="6" rx="2" fill="#f59e0b"/><text x="30" y="233" class="an-l">connected only when pressed</text></g>
     <g transform="translate(300 40)"><text x="90" y="-10" text-anchor="middle" class="an-l b">Side view</text>
      <rect class="bvPl" x="60" y="10" width="60" height="40" rx="6" fill="#1e1e1e"/><path class="bvDome" d="M20 90 Q90 40 160 90" stroke="#9ca3af" stroke-width="6" fill="none"/><rect x="0" y="100" width="180" height="16" fill="#3a3a3a"/><rect x="20" y="92" width="30" height="10" fill="#d4af37"/><rect x="130" y="92" width="30" height="10" fill="#d4af37"/><rect x="75" y="92" width="30" height="10" fill="#d4af37"/>
-     <text x="90" y="140" text-anchor="middle" class="an-l">a metal dome snaps down onto the contacts</text></g>
-    <g transform="translate(520 20)"><text x="0" y="10" class="an-l b">The circuit</text><g class="bvSch"></g></g>
-    <g transform="translate(40 240)"><text x="0" y="0" class="an-l b">Signal on the pin</text><path class="bvTr" d="" stroke="#1F8A70" stroke-width="3" fill="none"/><text x="720" y="20" class="an-l" text-anchor="end">HIGH</text><text x="720" y="72" class="an-l" text-anchor="end">LOW</text><text class="bvB an-l" x="0" y="88" fill="#C8653A"></text></g>
+     <text x="90" y="142" text-anchor="middle" class="an-l">a metal dome snaps down</text><text x="90" y="160" text-anchor="middle" class="an-l">onto the contacts</text></g>
+    <g transform="translate(560 20)"><text x="0" y="10" class="an-l b">The circuit</text><g class="bvSch"></g></g>
+    <g transform="translate(40 300)"><text x="0" y="0" class="an-l b">Signal on the pin</text><path class="bvTr" d="" stroke="#1F8A70" stroke-width="3" fill="none"/><text x="720" y="20" class="an-l" text-anchor="end">HIGH</text><text x="720" y="72" class="an-l" text-anchor="end">LOW</text><text class="bvB an-l" x="0" y="88" fill="#C8653A"></text></g>
    </svg><div class="ix-out bvE"></div>`);
   const sch = () => mode === "pulldown" ? `<text x="0" y="40" class="an-l">5V</text><path d="M30 35 H60 V60" stroke="#d22" stroke-width="3"/><rect x="45" y="60" width="30" height="16" fill="#2f2f2f"/><text x="90" y="72" class="an-l">button</text><path d="M60 76 V110 H150" stroke="#555" stroke-width="3"/><text x="154" y="114" class="an-l b">pin 2</text><rect x="52" y="120" width="16" height="44" fill="#E8D8B0" stroke="#8a6d3b"/><text x="74" y="146" class="an-l">10 kΩ</text><path d="M60 110 V120 M60 164 V180 M48 180 H72" stroke="#555" stroke-width="3"/><text x="40" y="200" class="an-l">GND</text>`
     : `<text x="0" y="40" class="an-l">5V</text><path d="M30 35 H60 V48" stroke="#d22" stroke-width="3"/><rect x="52" y="48" width="16" height="40" fill="#cbd5e1" stroke="#64748b" stroke-dasharray="4 3"/><text x="74" y="66" class="an-l">≈ 35 kΩ inside the chip</text><path d="M60 88 V110 H150" stroke="#555" stroke-width="3"/><text x="154" y="114" class="an-l b">pin 2</text><path d="M60 110 V130" stroke="#555" stroke-width="3"/><rect x="45" y="130" width="30" height="16" fill="#2f2f2f"/><text x="90" y="142" class="an-l">button</text><path d="M60 146 V180 M48 180 H72" stroke="#555" stroke-width="3"/><text x="40" y="200" class="an-l">GND</text>`;
@@ -4227,11 +4405,11 @@ INTERACTIVES.piezoViz = function(el){
    <svg class="anim-svg" viewBox="0 0 800 300" role="img" aria-label="A piezo disc bending up and down with a square wave">
     <g transform="translate(200 140)"><ellipse cx="0" cy="40" rx="160" ry="22" fill="#94a3b8"/><path class="pzDisc" d="" fill="#d4af37" stroke="#a16207" stroke-width="3"/><path class="pzCer" d="" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
      <text x="0" y="90" text-anchor="middle" class="an-l">brass disc + piezo ceramic (top view sideways)</text><g class="pzWaves"></g></g>
-    <g transform="translate(420 40)"><text x="0" y="0" class="an-l b">Signal from the pin</text><path class="pzSq" d="" stroke="#0369a1" stroke-width="3" fill="none"/><text x="360" y="32" text-anchor="end" class="an-l">5 V</text><text x="360" y="92" text-anchor="end" class="an-l">0 V</text><text class="an-v pzT" x="0" y="130"></text><text class="an-l pzT2" x="0" y="156"></text><text class="an-l pzT3" x="0" y="180"></text></g>
+    <g transform="translate(420 40)"><text x="0" y="0" class="an-l b">Signal from the pin</text><path class="pzSq" d="" stroke="#0369a1" stroke-width="3" fill="none"/><text x="-10" y="35" text-anchor="end" class="an-l">5 V</text><text x="-10" y="95" text-anchor="end" class="an-l">0 V</text><text class="an-v pzT" x="0" y="130"></text><text class="an-l pzT2" x="0" y="156"></text><text class="an-l pzT3" x="0" y="180"></text><text class="an-l pzT4" x="0" y="200"></text></g>
    </svg><div class="ix-out pzE"></div>`);
   const upd = () => { f = +$(".pzF", el).value; $(".pzFv", el).textContent = f + " Hz";
     $(".pzT", el).textContent = kind === "passive" ? `tone(8, ${f});` : "digitalWrite(8, HIGH);"; $(".pzT2", el).textContent = kind === "passive" ? `period = 1 ÷ ${f} Hz = ${(1000 / f).toFixed(2)} ms (HIGH half, LOW half)` : "the buzzer's own circuit makes ≈ 2.3 kHz (illustrative)";
-    $(".pzT3", el).textContent = kind === "passive" ? "A steady HIGH would only click once: a passive piezo needs a changing signal." : "An active buzzer only needs power: HIGH = beep, LOW = silent. It cannot play tunes.";
+    $(".pzT3", el).textContent = kind === "passive" ? "A steady HIGH would only click once:" : "An active buzzer only needs power:"; $(".pzT4", el).textContent = kind === "passive" ? "a passive piezo needs a changing signal." : "HIGH = beep, LOW = silent. No tunes.";
     $(".pzE", el).innerHTML = "<b>The piezoelectric effect:</b> certain crystals and ceramics change shape slightly when a voltage is applied. Glued to a thin brass disc, the ceramic bends the disc a tiny amount one way, then back when the voltage is removed. Switching thousands of times per second pushes the air in waves: sound. The <b>frequency</b> of switching is the <b>pitch</b> you hear: 440 Hz is the note A4. Humans hear roughly 20 Hz to 20 kHz; small buzzers are loudest near their resonant frequency, often 2–4 kHz (check the datasheet).";
     if (on) ixPlay(kind === "passive" ? f : 2300); markAct("piezoViz", "used"); };
   el.querySelectorAll(".pzK button").forEach(b => b.onclick = () => { kind = b.dataset.k; el.querySelectorAll(".pzK button").forEach(x => x.setAttribute("aria-selected", x === b)); $(".pzF", el).disabled = kind === "active"; upd(); });
@@ -4251,13 +4429,13 @@ INTERACTIVES.rgbViz = function(el){
   el.innerHTML = bench("Mixing light with PWM", `<div class="controls">${["R","G","B"].map(k => `<label class="sl-in">${k === "R" ? "Red" : k === "G" ? "Green" : "Blue"} <input type="range" class="rgS" data-k="${k}" min="0" max="255" value="${v[k]}"><b class="rgV${k}"></b></label>`).join("")}<label class="chk"><input type="checkbox" class="rgCA"><span>Common-anode LED</span></label></div>
    <div class="controls">${[["Orange",255,120,0],["Purple",160,0,255],["Cyan",0,255,255],["White",255,255,255],["Off",0,0,0]].map(p => `<button class="btn small rgP" type="button" data-p="${p.slice(1).join(",")}">${p[0]}</button>`).join("")}</div>
    <svg class="anim-svg" viewBox="0 0 800 300" role="img" aria-label="Three PWM signals and the color they mix">
-    <g transform="translate(40 30)">${["R","G","B"].map((k, i) => `<text x="0" y="${30 + i * 80}" class="an-l b">${k === "R" ? "pin 9 (red)" : k === "G" ? "pin 10 (green)" : "pin 11 (blue)"}</text><path class="rgW${k}" d="" stroke="${k === "R" ? "#dc2626" : k === "G" ? "#16a34a" : "#2563eb"}" stroke-width="3" fill="none"/><text class="rgD${k} an-l" x="400" y="${30 + i * 80}" text-anchor="end"></text>`).join("")}</g>
+    <g transform="translate(40 20)">${["R","G","B"].map((k, i) => `<text x="0" y="${i * 88 + 14}" class="an-l b">${k === "R" ? "pin 9 (red)" : k === "G" ? "pin 10 (green)" : "pin 11 (blue)"}</text><text class="rgD${k} an-l" x="400" y="${i * 88 + 14}" text-anchor="end"></text><path d="M0 ${i * 88 + 66} H400" stroke="var(--line)" stroke-width="1"/><path class="rgW${k}" d="" stroke="${k === "R" ? "#dc2626" : k === "G" ? "#16a34a" : "#2563eb"}" stroke-width="3" fill="none" stroke-linejoin="round"/>`).join("")}</g>
     <g transform="translate(600 150)" style="mix-blend-mode:screen"><circle class="rgcR" cx="-30" cy="-25" r="60" fill="#ff0000"/><circle class="rgcG" cx="30" cy="-25" r="60" fill="#00ff00" style="mix-blend-mode:screen"/><circle class="rgcB" cx="0" cy="25" r="60" fill="#0000ff" style="mix-blend-mode:screen"/></g>
     <rect x="520" y="250" width="160" height="34" rx="10" class="rgOut" stroke="var(--line)"/><text class="rgHex an-l b" x="600" y="240" text-anchor="middle"></text>
    </svg><div class="ix-out rgE"></div>`);
   const upd = () => { ["R","G","B"].forEach(k => { v[k] = +el.querySelector(`.rgS[data-k="${k}"]`).value; $(".rgV" + k, el).textContent = v[k]; }); ca = $(".rgCA", el).checked;
-    ["R","G","B"].forEach(k => { const d = v[k] / 255, w = ca ? 1 - d : d; let p = "M0 " + (54 + ["R","G","B"].indexOf(k) * 80); const y0 = 54 + ["R","G","B"].indexOf(k) * 80, y1 = y0 - 30;
-      for (let c = 0; c < 6; c++){ const x0 = c * 60; p += ` L${x0} ${w > 0 ? y1 : y0} L${x0 + w * 60} ${w > 0 ? y1 : y0} L${x0 + w * 60} ${y0} L${x0 + 60} ${y0}`; } $(".rgW" + k, el).setAttribute("d", p);
+    ["R","G","B"].forEach(k => { const d = v[k] / 255, w = ca ? 1 - d : d, i = ["R","G","B"].indexOf(k), y0 = i * 88 + 66, y1 = y0 - 36; let p;
+      if (w <= 0.001) p = `M0 ${y0} H400`; else if (w >= 0.999) p = `M0 ${y1} H400`; else { p = `M0 ${y0}`; for (let c = 0; c < 5; c++){ const x0 = c * 80; p += ` H${x0} V${y1} H${x0 + w * 80} V${y0}`; } p += " H400"; } $(".rgW" + k, el).setAttribute("d", p);
       $(".rgD" + k, el).textContent = `analogWrite(${k === "R" ? 9 : k === "G" ? 10 : 11}, ${ca ? 255 - v[k] : v[k]}) → ${Math.round(w * 100)}% HIGH`;
       el.querySelector(".rgc" + k).setAttribute("opacity", (v[k] / 255).toFixed(2)); });
     $(".rgOut", el).setAttribute("fill", `rgb(${v.R},${v.G},${v.B})`); $(".rgHex", el).textContent = "#" + [v.R, v.G, v.B].map(x => x.toString(16).padStart(2, "0")).join("").toUpperCase();
@@ -4271,15 +4449,15 @@ INTERACTIVES.rgbViz = function(el){
 INTERACTIVES.tmp36Viz = function(el){
   let T = 27;
   el.innerHTML = bench("How the TMP36 reports temperature", `<div class="controls"><label class="sl-in">Temperature <input type="range" class="tmS" min="-10" max="60" step="0.5" value="27"><b class="tmSv"></b></label></div>
-   <svg class="anim-svg" viewBox="0 0 800 320" role="img" aria-label="The TMP36 output voltage rises in a straight line with temperature">
-    <g transform="translate(60 30)"><path d="M0 0 V240 H320" stroke="var(--muted)" stroke-width="2" fill="none"/><text x="-8" y="10" class="an-l" text-anchor="end">1.5 V</text><text x="-8" y="244" class="an-l" text-anchor="end">0 V</text>
-     <text x="0" y="262" class="an-l">−40</text><text x="320" y="262" class="an-l" text-anchor="end">125 °C</text><path d="M0 ${240 - 0.1 / 1.5 * 240} L320 ${240 - 1.75 / 1.5 * 240}" stroke="#C8653A" stroke-width="3"/><circle class="tmDot" r="8" fill="#C8653A"/><text x="160" y="290" text-anchor="middle" class="an-l">Vout = 0.5 V + 0.01 V × °C</text></g>
+   <svg class="anim-svg" viewBox="0 0 900 320" role="img" aria-label="The TMP36 output voltage rises in a straight line with temperature">
+    <g transform="translate(60 30)"><path d="M0 0 V240 H320" stroke="var(--muted)" stroke-width="2" fill="none"/><text x="-8" y="10" class="an-l" text-anchor="end">2.0 V</text><text x="-8" y="124" class="an-l" text-anchor="end">1.0 V</text><path d="M0 120 H320" stroke="var(--line)" stroke-dasharray="3 5"/><text x="-8" y="244" class="an-l" text-anchor="end">0 V</text>
+     <text x="0" y="262" class="an-l">−40</text><text x="320" y="262" class="an-l" text-anchor="end">125 °C</text><path d="M0 ${240 - 0.1 / 2 * 240} L320 ${240 - 1.75 / 2 * 240}" stroke="#C8653A" stroke-width="3"/><circle class="tmDot" r="8" fill="#C8653A"/><text x="160" y="290" text-anchor="middle" class="an-l">Vout = 0.5 V + 0.01 V × °C</text></g>
     <g transform="translate(430 30)"><path d="M10 40 H130 V10 A60 70 0 0 0 10 10 Z" fill="#1d1d1d" transform="translate(0 30)"/><text x="70" y="65" text-anchor="middle" fill="#ddd" font-size="12" font-weight="700">TMP36</text>
      ${["+Vs","Vout","GND"].map((n, i) => `<path d="M${40 + i * 30} 70 V150" stroke="#9aa" stroke-width="5"/><text x="${40 + i * 30}" y="170" text-anchor="middle" class="an-l b">${n}</text>`).join("")}<text x="70" y="190" text-anchor="middle" class="an-l">flat side facing you</text>
      <text class="an-v tmV" x="180" y="40"></text><text class="an-l tmR" x="180" y="70"></text><text class="an-l tmC1" x="180" y="100"></text><text class="an-l tmC2" x="180" y="124"></text><text class="an-l tmC3" x="180" y="148"></text></g>
    </svg><div class="ix-out">Inside the TMP36, the voltage across a silicon junction changes in a very predictable way with temperature. The chip turns that into an output that rises <b>10 mV for every 1 °C</b>, with a 0.5 V offset so it can show temperatures below zero: 0.75 V means 25 °C ${cit("tmp36ds")}. Accuracy is about ±2 °C. Keep the flat side toward you: left leg 5V, middle leg to A0, right leg GND. <b>Wired backwards it gets hot enough to burn.</b></div>`);
   const upd = () => { T = +$(".tmS", el).value; const V = 0.5 + 0.01 * T, raw = Math.floor(V / 5 * 1024), v2 = raw * 5.0 / 1024, c = (v2 - 0.5) * 100;
-    $(".tmSv", el).textContent = T + " °C"; const x = (T + 40) / 165 * 320, y = 240 - V / 1.5 * 240; const d = $(".tmDot", el); d.setAttribute("cx", x); d.setAttribute("cy", y);
+    $(".tmSv", el).textContent = T + " °C"; const x = (T + 40) / 165 * 320, y = 240 - V / 2 * 240; const d = $(".tmDot", el); d.setAttribute("cx", x); d.setAttribute("cy", y);
     $(".tmV", el).textContent = `Vout = ${V.toFixed(3)} V`; $(".tmR", el).textContent = `analogRead(A0) ≈ ${raw}`; $(".tmC1", el).textContent = `volts = ${raw} × 5.0 / 1024 = ${v2.toFixed(3)} V`; $(".tmC2", el).textContent = `°C = (volts − 0.5) × 100 = ${c.toFixed(1)} °C`; $(".tmC3", el).textContent = `One step of the ADC ≈ 4.9 mV ≈ 0.5 °C`; markAct("tmp36Viz", "used"); };
   $(".tmS", el).oninput = upd; upd();
 };
@@ -4401,19 +4579,19 @@ INTERACTIVES.pirViz = function(el){
 /* ---- servo: a pulse width becomes an angle ---- */
 INTERACTIVES.servoViz = function(el){
   let target = 90, ang = 30;
-  el.innerHTML = bench("How a hobby servo knows where to point", `<div class="controls"><label class="sl-in">myServo.write( <input type="range" class="sv2" min="0" max="180" value="90"> ) <b class="sv2v"></b></label></div>
-   <svg class="anim-svg" viewBox="0 0 800 320" role="img" aria-label="Servo pulse timing and the feedback loop inside the servo">
-    <g transform="translate(30 30)"><text x="0" y="0" class="an-l b">Signal wire: one pulse every 20 ms (50 Hz)</text><path class="svP" d="" stroke="#f97316" stroke-width="3" fill="none"/><text class="svPt an-l" x="0" y="80"></text></g>
-    <g transform="translate(40 130)"><rect x="0" y="0" width="330" height="160" rx="16" fill="#1e5aa8"/>
+  el.innerHTML = bench("How a hobby servo knows where to point", `<div class="controls"><label class="sl-in">Angle <input type="range" class="sv2" min="0" max="180" value="90"> <b class="sv2v"></b></label></div>
+   <svg class="anim-svg" viewBox="0 0 800 350" role="img" aria-label="Servo pulse timing and the feedback loop inside the servo">
+    <g transform="translate(30 30)"><text x="0" y="0" class="an-l b">Signal wire: one pulse every 20 ms (50 Hz)</text><path class="svP" d="" stroke="#f97316" stroke-width="3" fill="none"/><text class="svPt an-l" x="0" y="84"></text></g>
+    <g transform="translate(40 160)"><rect x="0" y="0" width="330" height="160" rx="16" fill="#1e5aa8"/>
      <rect x="20" y="20" width="80" height="60" rx="8" fill="#94a3b8"/><text x="60" y="56" text-anchor="middle" font-size="12" font-weight="700">motor</text>
      <circle cx="160" cy="50" r="30" fill="#e5e7eb" stroke="#64748b" stroke-width="3"/><circle cx="215" cy="50" r="20" fill="#e5e7eb" stroke="#64748b" stroke-width="3"/><text x="185" y="98" text-anchor="middle" fill="#fff" font-size="11">gears slow it down, add force</text>
      <rect x="250" y="20" width="60" height="60" rx="8" fill="#f59e0b"/><text x="280" y="56" text-anchor="middle" font-size="11" font-weight="700">pot</text>
      <rect x="20" y="110" width="290" height="36" rx="8" fill="#0f172a"/><text class="svCtl" x="165" y="133" text-anchor="middle" fill="#a7f3d0" font-size="12" font-family="Geist Mono,monospace"></text></g>
-    <g transform="translate(560 170)"><circle r="90" fill="#f8fafc" stroke="#cbd5e1" stroke-width="3"/>${[0, 45, 90, 135, 180].map(a => `<text x="${-Math.cos(a * Math.PI / 180) * 112}" y="${-Math.sin(a * Math.PI / 180) * 112 + 5}" text-anchor="middle" class="an-l">${a}°</text>`).join("")}
+    <g transform="translate(600 230)"><circle r="90" fill="#f8fafc" stroke="#cbd5e1" stroke-width="3"/>${[0, 45, 90, 135, 180].map(a => `<text x="${-Math.cos(a * Math.PI / 180) * 112}" y="${-Math.sin(a * Math.PI / 180) * 112 + 5}" text-anchor="middle" class="an-l">${a}°</text>`).join("")}
      <g class="svHorn"><path d="M0 0 L-80 0" stroke="#334155" stroke-width="14" stroke-linecap="round"/><circle r="16" fill="#334155"/></g><path class="svTgt" d="" stroke="#f97316" stroke-width="3" stroke-dasharray="6 5"/></g>
    </svg><div class="ix-out">Inside a hobby servo, a small DC motor turns the output shaft through gears. A potentiometer on the shaft tells the control chip where the shaft is. Every 20 ms the Arduino sends a pulse: about <b>0.5 ms means 0°</b> and <b>about 2.4 ms means 180°</b> (the Servo library's defaults are 544 µs and 2400 µs; real servos vary). The chip compares the pulse with the pot and drives the motor until they match: a <b>feedback loop</b>. If something blocks the horn, the motor keeps pushing and draws a lot of current.</div>`);
   const us = a => Math.round(544 + a * (2400 - 544) / 180);
-  $(".sv2", el).oninput = e => { target = +e.target.value; $(".sv2v", el).textContent = target + "°"; markAct("servoViz", "used"); }; $(".sv2v", el).textContent = "90°";
+  $(".sv2", el).oninput = e => { target = +e.target.value; $(".sv2v", el).textContent = `myServo.write(${target})`; markAct("servoViz", "used"); }; $(".sv2v", el).textContent = "myServo.write(90)";
   animLoop(el, () => { const err = target - ang; ang += Math.sign(err) * Math.min(Math.abs(err), 4);
     const w = us(target) / 20000 * 700; let p = ""; for (let k = 0; k < 2; k++){ const x0 = 10 + k * 360; p += `${k ? " " : ""}M${x0} 60 V20 H${x0 + w} V60 H${x0 + 350}`; } $(".svP", el).setAttribute("d", p);
     $(".svPt", el).textContent = `pulse ${us(target)} µs = ${(us(target) / 1000).toFixed(2)} ms out of every 20 ms`;
@@ -4424,20 +4602,20 @@ INTERACTIVES.servoViz = function(el){
 /* ---- DC motor: magnets, a coil, a commutator, and a transistor switch ---- */
 INTERACTIVES.motorViz = function(el){
   let duty = 0.6, rot = 0, diode = true, spikes = [];
-  el.innerHTML = bench("How a DC motor turns, and how the Arduino controls it", `<div class="controls"><label class="sl-in">analogWrite(9, <input type="range" class="mvD" min="0" max="255" value="153">) <b class="mvDv"></b></label><label class="chk"><input type="checkbox" class="mvF" checked><span>Flyback diode across the motor</span></label></div>
-   <svg class="anim-svg" viewBox="0 0 800 330" role="img" aria-label="A DC motor's coil between magnets, and a transistor driver circuit">
+  el.innerHTML = bench("How a DC motor turns, and how the Arduino controls it", `<div class="controls"><label class="sl-in">Value <input type="range" class="mvD" min="0" max="255" value="153"> <b class="mvDv"></b></label><label class="chk"><input type="checkbox" class="mvF" checked><span>Flyback diode across the motor</span></label></div>
+   <svg class="anim-svg" viewBox="0 0 800 340" role="img" aria-label="A DC motor's coil between magnets, and a transistor driver circuit">
     <g transform="translate(180 160)"><rect x="-170" y="-110" width="80" height="220" rx="12" fill="#dc2626"/><text x="-130" y="5" text-anchor="middle" fill="#fff" font-size="34" font-weight="800">N</text><rect x="90" y="-110" width="80" height="220" rx="12" fill="#2563eb"/><text x="130" y="5" text-anchor="middle" fill="#fff" font-size="34" font-weight="800">S</text>
      <g class="mvRot"><rect x="-70" y="-14" width="140" height="28" rx="10" fill="#b45309"/><path d="M-70 -14 V14 M70 -14 V14" stroke="#7c2d12" stroke-width="6"/><circle r="10" fill="#555"/></g>
-     <circle r="22" fill="none" stroke="#d4af37" stroke-width="8" stroke-dasharray="30 8" class="mvCom"/><text x="0" y="132" text-anchor="middle" class="an-l">coil (armature) between permanent magnets; the commutator flips the current every half turn</text></g>
+     <circle r="22" fill="none" stroke="#d4af37" stroke-width="8" stroke-dasharray="30 8" class="mvCom"/><text x="0" y="134" text-anchor="middle" class="an-l">coil (armature) between permanent magnets;</text><text x="0" y="152" text-anchor="middle" class="an-l">the commutator flips the current every half turn</text></g>
     <g transform="translate(440 20)"><text x="0" y="12" class="an-l b">Low-side transistor switch</text>
      <text x="250" y="40" class="an-l b">+6 V battery</text><path d="M240 50 V80" stroke="#dc2626" stroke-width="4"/><rect x="215" y="80" width="50" height="60" rx="8" fill="#facc15" stroke="#a16207" stroke-width="3"/><text x="240" y="115" text-anchor="middle" font-size="12" font-weight="700">M</text>
      <g class="mvDio"><path d="M290 80 V140 M280 98 L300 98 L290 116 Z M280 116 H300" stroke="#111" stroke-width="3" fill="#111"/><path d="M265 80 H290 M265 140 H290" stroke="#111" stroke-width="3"/><text x="304" y="114" class="an-l">1N4007</text></g>
      <path d="M240 140 V170" stroke="#555" stroke-width="4"/><circle cx="240" cy="195" r="26" fill="none" stroke="#555" stroke-width="3"/><path d="M225 185 V205 M225 195 H200 M225 188 L240 175 M225 202 L240 215" stroke="#555" stroke-width="3"/><text x="270" y="200" class="an-l">PN2222A</text>
-     <path d="M240 215 V250 M226 250 H254 M231 256 H249" stroke="#555" stroke-width="4"/><text x="262" y="258" class="an-l">GND (shared with the UNO)</text>
+     <path d="M240 215 V250 M226 250 H254 M231 256 H249" stroke="#555" stroke-width="4"/><text x="262" y="258" class="an-l">GND (shared)</text>
      <rect x="120" y="186" width="60" height="18" fill="#E8D8B0" stroke="#8a6d3b"/><text x="150" y="182" text-anchor="middle" class="an-l">1 kΩ</text><path d="M60 195 H120 M180 195 H200" stroke="#f97316" stroke-width="3"/><text x="0" y="200" class="an-l b">pin 9</text>
      <path class="mvPwm" d="" stroke="#f97316" stroke-width="2.5" fill="none"/><path class="mvSpk" d="" stroke="#dc2626" stroke-width="2.5" fill="none"/><text class="mvSt an-l" x="0" y="300"></text></g>
    </svg><div class="ix-out mvE"></div>`);
-  const upd = () => { duty = +$(".mvD", el).value / 255; diode = $(".mvF", el).checked; $(".mvDv", el).textContent = `${Math.round(duty * 100)}% duty`; $(".mvDio", el).setAttribute("opacity", diode ? 1 : 0.12);
+  const upd = () => { duty = +$(".mvD", el).value / 255; diode = $(".mvF", el).checked; $(".mvDv", el).textContent = `analogWrite(9, ${Math.round(duty * 255)}) → ${Math.round(duty * 100)}% duty`; $(".mvDio", el).setAttribute("opacity", diode ? 1 : 0.12);
     $(".mvE", el).innerHTML = `<b>Why it spins:</b> current in the coil makes it an electromagnet; its poles are pulled toward the opposite magnet poles. Just as it lines up, the <b>commutator</b> reverses the current, so it keeps turning. <b>Why a transistor:</b> a small motor needs hundreds of milliamps, far more than an Arduino pin's 20 mA. The pin only drives the transistor's base (through 1 kΩ); the transistor switches the motor's own power. Grounds must be connected. <b>PWM</b> switches it on and off fast, so the motor's average power, and its speed, follow the duty cycle. <b>Flyback diode:</b> a coil resists sudden changes of current; when the transistor switches off, the coil can make a voltage spike far above 6 V. The diode gives that current a safe loop. ${diode ? "" : "<b style='color:var(--bad)'>Without it, watch the spikes.</b>"}`; markAct("motorViz", "used"); };
   el.querySelectorAll("input").forEach(x => x.oninput = x.onchange = upd); upd();
   animLoop(el, now => { rot += duty > 0.15 ? (duty - 0.1) * 16 : 0; $(".mvRot", el).setAttribute("transform", `rotate(${rot})`); $(".mvCom", el).setAttribute("transform", `rotate(${rot})`);
@@ -4562,7 +4740,7 @@ INTERACTIVES.sdgGoals = function(el){
   const seen = new Set();
   const show = n => { seen.add(n); const g = SDG_GOALS[n - 1], ts = Object.keys(SDG_TARGETS).filter(t => t.split(".")[0] === String(n));
     el.querySelectorAll(".sdg-tile").forEach(b => b.classList.toggle("sel", +b.dataset.g === n));
-    $(".sdgOut", el).innerHTML = `<div class="sdg-head" style="--c:${g[2]}"><b>SDG ${g[0]}</b> ${esc(g[1])}</div><p><b>An Arduino prototype idea:</b> ${esc(g[3])}</p>${ts.length ? ts.map(t => `<div class="sdg-target"><b>Target ${t}</b> “${esc(SDG_TARGETS[t][0])}.”${SDG_TARGETS[t][1] ? `<span class="explain">Indicator ${esc(SDG_TARGETS[t][1])}</span>` : ""}<span class="explain"><b>Course components:</b> ${esc(SDG_TARGETS[t][2])}</span></div>`).join("") : `<p class="explain">This course quotes only some targets. Read all of Goal ${n}'s targets at <a href="https://sdgs.un.org/goals/goal${n}" target="_blank" rel="noopener">sdgs.un.org</a>.</p>`}`;
+    $(".sdgOut", el).innerHTML = `<div class="sdg-head" style="--c:${g[2]}"><b>SDG ${g[0]}:</b>&nbsp;${esc(g[1])}</div><p><b>An Arduino prototype idea:</b> ${esc(g[3])}</p>${ts.length ? ts.map(t => `<div class="sdg-target"><b>Target ${t}</b> “${esc(SDG_TARGETS[t][0])}.”${SDG_TARGETS[t][1] ? `<span class="explain">Indicator ${esc(SDG_TARGETS[t][1])}</span>` : ""}<span class="explain"><b>Course components:</b> ${esc(SDG_TARGETS[t][2])}</span></div>`).join("") : `<p class="explain">This course quotes only some targets. Read all of Goal ${n}'s targets at <a href="https://sdgs.un.org/goals/goal${n}" target="_blank" rel="noopener">sdgs.un.org</a>.</p>`}`;
     if (seen.size >= 4) markAct("sdgGoals", "used"); };
   el.querySelectorAll(".sdg-tile").forEach(b => b.onclick = () => show(+b.dataset.g)); show(7);
 };
@@ -4775,7 +4953,7 @@ INTERACTIVES.ledCalc = function(el){
   const LEDS = {red:[1.9,"#D62828"], yellow:[2.0,"#E8B84A"], green:[2.1,"#1F8A70"], blue:[3.0,"#2563EB"], white:[3.1,"#E5E7EB"]};
   el.innerHTML = bench("LED resistor calculator", `<div class="controls"><label>Supply <select class="dinput lcS"><option value="5">5 V (UNO pin HIGH or 5V pin)</option><option value="3.3">3.3 V (UNO 3.3V pin)</option><option value="9">9 V battery</option></select></label>
    <label>LED color <select class="dinput lcC">${Object.keys(LEDS).map(k => `<option>${k}</option>`).join("")}</select></label><label>Current <select class="dinput lcI"><option value="0.005">5 mA (dim, saves power)</option><option value="0.01">10 mA (good)</option><option value="0.015" selected>15 mA (bright)</option><option value="0.02">20 mA (maximum for most 5 mm LEDs)</option></select></label></div>
-   <div class="ix-grid2"><div class="ix-out lcOut"></div><svg class="flowsvg" viewBox="0 0 260 120" aria-label="LED circuit"><text x="10" y="64" class="svgtxt b lcVt">5 V</text><path d="M50 60 H90" stroke="var(--ink)" stroke-width="2"/><rect x="90" y="50" width="50" height="20" rx="4" fill="#E8D8B0" stroke="var(--ink)"/><text x="115" y="44" text-anchor="middle" class="svgtxt lcRt"></text><path d="M140 60 H170" stroke="var(--ink)" stroke-width="2"/><path d="M170 46 V74 L196 60 Z" class="lcLed" stroke="var(--ink)"/><path d="M196 46 V74 M196 60 H240 V100 H20 V80" stroke="var(--ink)" stroke-width="2" fill="none"/><text x="220" y="115" class="svgtxt">GND</text></svg></div>
+   <div class="ix-grid2 lc-grid"><div class="ix-out lcOut"></div><svg class="flowsvg" viewBox="0 0 260 120" aria-label="LED circuit"><text x="10" y="64" class="svgtxt b lcVt">5 V</text><path d="M50 60 H90" stroke="var(--ink)" stroke-width="2"/><rect x="90" y="50" width="50" height="20" rx="4" fill="#E8D8B0" stroke="var(--ink)"/><text x="115" y="44" text-anchor="middle" class="svgtxt lcRt"></text><path d="M140 60 H170" stroke="var(--ink)" stroke-width="2"/><path d="M170 46 V74 L196 60 Z" class="lcLed" stroke="var(--ink)"/><path d="M196 46 V74 M196 60 H240 V100 H20 V80" stroke="var(--ink)" stroke-width="2" fill="none"/><text x="220" y="115" class="svgtxt">GND</text></svg></div>
    <p class="explain">Typical forward voltages for illustration. Check your LED's datasheet: blue and white vary from about 2.8 to 3.4 V ${cit("sfLED")}.</p>`);
   const draw = () => { const Vs = +$(".lcS", el).value, c = $(".lcC", el).value, I = +$(".lcI", el).value, Vf = LEDS[c][0];
     $(".lcVt", el).textContent = Vs + " V"; $(".lcLed", el).setAttribute("fill", LEDS[c][1]);
@@ -4913,7 +5091,7 @@ INTERACTIVES.schematicTrace = function(el){
     box.innerHTML = `<svg class="anim-svg" viewBox="0 0 700 220" role="img" aria-label="Schematic: pin 9, resistor, LED, ground"><rect x="20" y="40" width="120" height="140" rx="12" fill="#00878f"/><text x="80" y="70" text-anchor="middle" fill="#fff" font-weight="700">UNO</text><text x="128" y="104" text-anchor="end" fill="#fff" font-size="14">9</text><text x="128" y="164" text-anchor="end" fill="#fff" font-size="14">GND</text>
       <path d="M140 100 H230" stroke="${hl(1)}" stroke-width="${i === 0 || i === 1 ? 5 : 3}"/>${i === 0 ? `<circle cx="140" cy="100" r="10" fill="#E8B84A"/>` : ""}
       <g style="color:${hl(1)}">${schSym("resistor", 270, 100)}</g><text x="270" y="80" text-anchor="middle" class="sch-t">220 Ω</text><path d="M310 100 H400" stroke="var(--ink)" stroke-width="3"/>
-      ${schSym("led", 440, 100)}<text x="440" y="70" text-anchor="middle" class="sch-t">LED</text><path d="M480 100 H560 V160" stroke="var(--ink)" stroke-width="3"/>${schSym("ground", 560, 180)}
+      ${schSym("led", 440, 100)}<text x="425" y="140" text-anchor="middle" class="sch-t">LED</text><path d="M480 100 H560 V160" stroke="var(--ink)" stroke-width="3"/>${schSym("ground", 560, 180)}
       <path d="M140 160 H200 V170" stroke="var(--ink)" stroke-width="3"/>${schSym("ground", 200, 190)}
       ${i >= 4 ? `<path d="M140 100 H230 M310 100 H400 M480 100 H560 V160" stroke="#E8B84A" stroke-width="6" fill="none" opacity=".55"/>` : ""}
       ${i >= 2 && i < 5 ? `<circle r="7" fill="#E8B84A"><animateMotion dur="2.4s" repeatCount="indefinite" path="M140 100 H560 V170"/></circle>` : ""}</svg>`; }, "schematicTrace");
@@ -5189,7 +5367,7 @@ INTERACTIVES.codeTracer = function(el){
    <div class="tracer"><div class="lines ctL">${CODE.map((c, i) => `<div data-i="${i}">${esc(c)}</div>`).join("")}</div><div><b>Variables</b><div class="ctV kv"></div><b>Serial Monitor</b><pre class="serial ctS" style="min-height:90px"></pre><p class="explain ctE"></p></div></div>
    <div class="controls"><button class="btn primary ctN" type="button">Step</button><button class="btn ctR" type="button">Restart</button></div>`);
   const out = () => T.slice(0, k + 1).map(t => t[2]).filter(Boolean);
-  const draw = () => { const t = T[k]; el.querySelectorAll(".ctL div").forEach(d => d.classList.toggle("hl", t && +d.dataset.i === t[0]));
+  const draw = () => { const t = T[k]; el.querySelectorAll(".ctL div").forEach(d => d.classList.toggle("hl", !!(t && +d.dataset.i === t[0])));
     $(".ctV", el).innerHTML = t ? Object.keys(t[1]).map(n => `<span>${n}</span><b>${t[1][n]}</b>`).join("") : "<span>(nothing yet)</span><b></b>";
     $(".ctS", el).textContent = out().join("\n");
     $(".ctE", el).textContent = !t ? "Press Step." : t[0] === 3 ? (t[1].i > 3 ? "i is 4: the condition i <= 3 is false, so the loop ends." : `Check the condition: is ${t[1].i} <= 3? Yes, so run the body.`) : t[0] === 4 ? `total = ${t[1].total - t[1].i} + ${t[1].i} = ${t[1].total}` : t[0] === 7 ? "6 > 5 is true, so the if branch runs." : "";
@@ -5221,11 +5399,11 @@ INTERACTIVES.logicLevel = function(el){
 /* ---- PWM ---- */
 INTERACTIVES.pwmViz = function(el){
   let v = 64, t = 0;
-  el.innerHTML = bench("PWM: faking an in-between voltage", `<div class="controls"><label class="sl-in">analogWrite(9, <input type="range" class="pwV" min="0" max="255" value="64">) <b class="pwVv"></b></label><label class="chk"><input type="checkbox" class="pwS"><span>Slow motion (what the LED really does)</span></label></div>
+  el.innerHTML = bench("PWM: faking an in-between voltage", `<div class="controls"><label class="sl-in">Value <input type="range" class="pwV" min="0" max="255" value="64"> <b class="pwVv"></b></label><label class="chk"><input type="checkbox" class="pwS"><span>Slow motion (what the LED really does)</span></label></div>
    <svg class="anim-svg" viewBox="0 0 800 220" role="img" aria-label="PWM waveform and LED brightness"><g transform="translate(30 30)"><path class="pwW" d="" stroke="#f97316" stroke-width="3" fill="none"/><path d="M0 100 H560" stroke="var(--line)"/><text x="570" y="20" class="an-l">5 V</text><text x="570" y="104" class="an-l">0 V</text><path class="pwAvg" d="" stroke="#2563eb" stroke-width="2" stroke-dasharray="8 6"/><text class="pwAvgT an-l" x="0" y="140" fill="#2563eb"></text></g>
     <g transform="translate(700 90)"><circle r="60" class="pwGlow" fill="#ff3030" opacity="0"/><circle r="26" class="pwLed" fill="#7f1d1d" stroke="#333" stroke-width="2"/></g></svg>
    <div class="ix-out pwE"></div>`);
-  const upd = () => { v = +$(".pwV", el).value; const d = v / 255; $(".pwVv", el).textContent = `${v}) → ${Math.round(d * 100)}% duty`;
+  const upd = () => { v = +$(".pwV", el).value; const d = v / 255; $(".pwVv", el).textContent = `analogWrite(9, ${v}) → ${Math.round(d * 100)}% duty`;
     let p = "M0 100"; for (let k = 0; k < 7; k++){ const x0 = k * 80; p += ` L${x0} ${d > 0 ? 20 : 100} L${x0 + d * 80} ${d > 0 ? 20 : 100} L${x0 + d * 80} 100 L${x0 + 80} 100`; } $(".pwW", el).setAttribute("d", p);
     const y = 100 - d * 80; $(".pwAvg", el).setAttribute("d", `M0 ${y} H560`); $(".pwAvgT", el).textContent = `average voltage ≈ ${(5 * d).toFixed(2)} V (what a multimeter shows)`;
     $(".pwE", el).innerHTML = `A digital pin can only be 0 V or 5 V. <b>Pulse-width modulation</b> switches it on and off about 490 times per second (980 on pins 5 and 6). The fraction of time it is HIGH is the <b>duty cycle</b>: analogWrite(9, ${v}) means ${v}/255 = ${Math.round(d * 100)}% ${cit("arduinoPWM")}. The LED really flashes, but too fast for your eyes, so it looks ${d < .15 ? "dim" : d < .6 ? "medium" : "bright"}. Only pins marked ~ (3, 5, 6, 9, 10, 11) can do this.`; markAct("pwmViz", "used"); };
@@ -5301,7 +5479,7 @@ const CAP_CURRENT = {button:0, pot:0.5, ldr:0.5, tmp36:0.05, dht11:1, hcsr04:15,
 INTERACTIVES.empathyMap = function(el){
   const p = getProject(), Q = [["says","SAYS","Quotes from your interview: what did they actually say?"],["thinks","THINKS","What might they be thinking but not saying?"],["does","DOES","What did you see them do? Actions, workarounds."],["feels","FEELS","How do they feel about the situation? Worried, annoyed, unsafe?"]];
   el.innerHTML = bench("Empathy map", `<div class="ix-out"><label class="field"><span><b>Who did you observe or interview?</b></span><input class="dinput emW" value="${esc(p.user)}" placeholder="e.g. Ms. Reyes, a canteen cook (with her permission)"></label></div>
-   <div class="emp-grid">${Q.map(q => `<label class="emp-q"><b>${q[1]}</b><span class="explain">${q[2]}</span><textarea class="dinput" rows="4" data-k="${q[0]}">${esc(p.empathy[q[0]] || "")}</textarea></label>`).join("")}</div>
+   <div class="emp-grid">${Q.map(q => `<label class="emp-q"><b>${q[1][0] + q[1].slice(1).toLowerCase()}</b> <span class="explain">${q[2]}</span><textarea class="dinput" rows="4" data-k="${q[0]}">${esc(p.empathy[q[0]] || "")}</textarea></label>`).join("")}</div>
    <label class="field"><span><b>Pains and needs</b> (what is hard for them? what do they need?)</span><textarea class="dinput emN" rows="2">${esc(p.empathy.needs || "")}</textarea></label><p class="explain">Ask permission before you interview or photograph anyone, and do not record personal details you do not need.</p><p class="feedback emO"></p>`);
   const save = () => { const q = getProject(); q.user = $(".emW", el).value; el.querySelectorAll("[data-k]").forEach(t => q.empathy[t.dataset.k] = t.value); q.empathy.needs = $(".emN", el).value; saveProject(q);
     const n = Q.filter(x => (q.empathy[x[0]] || "").trim().length > 5).length; $(".emO", el).textContent = `${n} of 4 quadrants filled`; if (n === 4 && q.user.trim()) markAct("empathyMap", "done"); };
@@ -5953,13 +6131,13 @@ INTERACTIVES.transistorViz = function(el){
   const frame = () => {
     if (tab === "switch"){ const k = calc(); $(".tvPv", el).textContent = k.Vin.toFixed(1) + " V"; const on = k.Ic > 1e-4, spin = load === "motor" ? (ph * 10 * k.Ic / k.Isat) % 360 : 0, valve = Math.min(1, k.Ic / k.Isat);
       S.innerHTML = `<rect x="20" y="170" width="120" height="90" rx="12" fill="#00878f"/>${dzT(80, 205, "UNO pin 9", {c:"an-l b", fill:"#fff"})}${dzT(80, 235, k.Vin.toFixed(1) + " V", {c:"an-v", fill:"#fde68a"})}
-        <path d="M140 215 H190" stroke="#2563eb" stroke-width="3"/><rect x="190" y="203" width="80" height="24" rx="10" fill="#e9d3a6" stroke="#b99b62" stroke-width="2"/>${dzT(230, 196, "R_B " + fmtOhm(Rb), {size:13, w:700})}<path d="M270 215 H352" stroke="#2563eb" stroke-width="3"/>
+        <path d="M140 215 H190" stroke="#2563eb" stroke-width="3"/><rect x="190" y="203" width="80" height="24" rx="10" fill="#e9d3a6" stroke="#b99b62" stroke-width="2"/>${dzT(230, 196, "R<tspan baseline-shift=\"sub\" font-size=\"10\">B</tspan> " + fmtOhm(Rb), {size:13, w:700})}<path d="M270 215 H352" stroke="#2563eb" stroke-width="3"/>
         <circle cx="390" cy="215" r="48" fill="var(--surface)" stroke="var(--ink)" stroke-width="3"/><path d="M352 215 H372 M372 185 V245 M372 203 L404 175 V120 M372 227 L404 255 V330" stroke="var(--ink)" stroke-width="3" fill="none"/><path d="M394 247 L404 255 L392 258" stroke="var(--ink)" stroke-width="3" fill="var(--ink)"/>${dzT(345, 205, "B", {size:13, w:800})}${dzT(418, 150, "C", {size:13, w:800})}${dzT(418, 290, "E", {size:13, w:800})}
         <path d="M404 120 V80 H520" stroke="#111" stroke-width="5" fill="none"/>${load === "motor" ? `<g transform="translate(560 80)"><circle r="40" fill="#9ca3af" stroke="#4b5563" stroke-width="4"/><g transform="rotate(${spin})"><path d="M0 -30 V30 M-30 0 H30" stroke="#1f2937" stroke-width="7"/></g>${dzT(0, 64, "motor", {size:13, w:700})}</g>` : `<g transform="translate(560 80)"><circle r="${16 + valve * 30}" fill="#ef4444" opacity="${valve * .5}"/><circle r="18" fill="${on ? "#ef4444" : "#7f1d1d"}" stroke="#111" stroke-width="2"/>${dzT(0, 44, "LED + 220 Ω", {size:13, w:700})}</g>`}
         <path d="M600 80 H700 V160" stroke="#dc2626" stroke-width="5" fill="none"/><rect x="660" y="160" width="80" height="110" rx="10" fill="#1f2937"/><rect x="660" y="160" width="80" height="26" rx="10" fill="#dc2626"/>${dzT(700, 232, "6 V", {c:"an-v", fill:"#fff"})}<path d="M404 330 H700 V270" stroke="#111" stroke-width="5" fill="none"/><path d="M80 260 V350 H404" stroke="#111" stroke-width="3" fill="none"/>${dzT(250, 368, "common GND", {size:12, fill:"#64748b"})}
         ${k.Ib > 1e-6 ? flow([[140, 215], [352, 215], [372, 215], [404, 255], [404, 330]], 5, Math.min(3, 0.6 + k.Ib * 1500), 4, "#2563eb") : ""}${on ? flow([[700, 160], [700, 80], [404, 80], [404, 255], [404, 330], [700, 330], [700, 270]], 10, Math.min(5, 0.8 + k.Ic * 20), 7, "#f97316") : ""}
         <g transform="translate(770 40)"><rect x="-60" y="0" width="120" height="${32}" rx="16" fill="${k.reg === "saturation" ? "#16a34a" : k.reg === "active" ? "#E8B84A" : "#94a3b8"}"/>${dzT(0, 21, k.reg === "saturation" ? "fully ON" : k.reg === "active" ? "partly on" : "OFF", {size:14, w:800, fill:"#fff"})}</g>
-        ${dzT(760, 120, `I_B = ${(k.Ib * 1000).toFixed(2)} mA`, {a:"middle", size:15, w:700, fill:"#2563eb"})}${dzT(760, 146, `I_C = ${(k.Ic * 1000).toFixed(0)} mA`, {a:"middle", size:15, w:700, fill:"#ea580c"})}`;
+        ${dzT(760, 120, `I<tspan baseline-shift="sub" font-size="11">B</tspan> = ${(k.Ib * 1000).toFixed(2)} mA`, {a:"middle", size:15, w:700, fill:"#2563eb"})}${dzT(760, 146, `I<tspan baseline-shift="sub" font-size="11">C</tspan> = ${(k.Ic * 1000).toFixed(0)} mA`, {a:"middle", size:15, w:700, fill:"#ea580c"})}`;
       O.innerHTML = k.reg === "cutoff" ? `<b>OFF (cutoff).</b> The pin is below about 0.7 V, so no current flows into the base, and the transistor blocks the big collector current. The ${load} is off.` : k.reg === "active" ? `<b>Partly on (active region).</b> A base current of ${(k.Ib * 1000).toFixed(2)} mA allows a collector current about 100 times bigger (I<sub>C</sub> ≈ β × I<sub>B</sub> = ${(k.Ic * 1000).toFixed(0)} mA), but not enough for the ${load}: it needs about ${(k.Isat * 1000).toFixed(0)} mA. The transistor gets warm. Use a smaller base resistor so it switches <b>fully on</b>.` : `<b>Fully ON (saturation).</b> The pin gives only ${(k.Ib * 1000).toFixed(2)} mA into the base, yet ${(k.Ic * 1000).toFixed(0)} mA flows from the 6 V battery through the ${load} and the transistor to GND. A small current switches a big one: the pin is safe and the ${load} gets the power it needs ${cit("sfTransistors", "pn2222")}.`; }
     if (tab === "amp"){ $(".tvAv", el).textContent = amp + " mV"; const P = dzPlot({w:860, h:380, x0:0, x1:20, y0:-3.2, y1:3.2, xt:[0, 5, 10, 15, 20], yt:[-3, -2, -1, 0, 1, 2, 3], xl:"time (ms)", yl:"signal (V, around its resting level)"}), g = 50, sh = ph / 6;
       const vin = t => amp / 1000 * Math.sin((t + sh) * Math.PI / 5), vout = t => Math.max(-3, Math.min(3, -g * vin(t)));
@@ -6072,7 +6250,7 @@ INTERACTIVES.dmmTrainer = function(el){
       else $(".dmOut", el).innerHTML = "Not quite. Look at the reading again and compare it with the guide in the step list."; });
     $(".dmFuse", el).hidden = !blown; $(".dmOut", el).innerHTML = `<b>${esc(sc.t)}</b> <p>${r.n || ""}</p>`; };
   const target = () => {
-    if (si === 0) return `<rect x="520" y="180" width="180" height="290" rx="14" fill="#111827"/><rect x="520" y="180" width="180" height="80" rx="14" fill="#f97316"/>${dzT(610, 340, "9V", {size:56, w:800, fill:"#fff"})}<circle cx="570" cy="160" r="16" fill="#9ca3af" stroke="#4b5563" stroke-width="3"/><path d="M640 146 h20 l8 14 l-8 14 h-20 l-8 -14 z" fill="#9ca3af" stroke="#4b5563" stroke-width="3"/>`;
+    if (si === 0) return `<rect x="520" y="182" width="180" height="288" rx="12" fill="#1f2937"/><rect x="520" y="182" width="180" height="86" rx="12" fill="#ea580c"/><rect x="520" y="250" width="180" height="18" fill="#ea580c"/><rect x="526" y="172" width="168" height="16" rx="4" fill="#cbd5e1" stroke="#64748b" stroke-width="2"/>${dzT(610, 345, "9V", {size:54, w:800, fill:"#fff"})}${dzT(610, 380, "alkaline", {size:16, w:500, fill:"#cbd5e1"})}<rect x="558" y="146" width="24" height="28" fill="#9ca3af" stroke="#475569" stroke-width="2"/><ellipse cx="570" cy="146" rx="12" ry="5" fill="#e2e8f0" stroke="#475569" stroke-width="2"/><path d="M633 152 l9 -15 h18 l9 15 v18 h-36 z" fill="#9ca3af" stroke="#475569" stroke-width="2"/><path d="M633 152 h36" stroke="#475569" stroke-width="2"/><circle cx="651" cy="152" r="6" fill="#64748b"/>`;
     if (si === 1){ const b = resBands(rnd.res[0] < 1000 ? 220 : rnd.res[0] < 5000 ? 4700 : 10000); return `<path d="M470 280 H560 M720 280 H810" stroke="#9aa1a6" stroke-width="7"/><rect x="560" y="246" width="160" height="68" rx="30" fill="#e9d3a6" stroke="#b99b62" stroke-width="3"/>${b.map((c, i) => `<rect x="${585 + i * 26 + (i === 3 ? 22 : 0)}" y="246" width="13" height="68" fill="${c}"/>`).join("")}${dzT(640, 360, "loose resistor (out of the circuit)", {size:13, fill:"#64748b"})}`; }
     if (si === 2) return `<path d="M455 175 C560 120 700 260 835 205" stroke="#22c55e" stroke-width="9" fill="none"/>${dzT(640, 150, "wire A", {c:"an-l b"})}<path d="M455 355 C560 300 700 440 835 385" stroke="#3b82f6" stroke-width="9" fill="none"/>${dzT(640, 330, "wire B", {c:"an-l b"})}`;
     if (si === 3) return `<path d="M600 330 V440 M680 330 V440" stroke="#b8bec6" stroke-width="8"/><path d="M570 330 V230 A70 70 0 0 1 710 230 V330 Z" fill="#fecaca" stroke="#ef4444" stroke-width="3" opacity="${read().glow ? 1 : .85}"/>${read().glow ? `<circle cx="640" cy="240" r="70" fill="#ef4444" opacity=".25"/>` : ""}<rect x="560" y="322" width="160" height="16" rx="3" fill="#fca5a5"/>${dzT(640, 200, "legs cut to the same length", {size:13, fill:"#64748b"})}`;
@@ -6148,10 +6326,10 @@ INTERACTIVES.varScope = function(el){
 /* ---- parameters and return values, animated ---- */
 INTERACTIVES.paramViz = function(el){
   const EX = {
-    area:{label:"area(3, 4)", code:[`int area(int w, int h) {  // w, h: parameters`, `  int a = w * h;`, `  return a;               // send it back`, `}`, ``, `void setup() {`, `  Serial.begin(9600);`, `  int room = area(3, 4);  // 3, 4: arguments`, `  Serial.println(room);`, `}`], call:7, ps:[["w", 3], ["h", 4]], body:[[1, "a = w × h = 3 × 4 = 12", [["a", 12]]], [2, "return a → 12", null]], ret:12, after:[[7, "room = 12"], [8, "prints 12"]], out:"12"},
+    area:{label:"area(3, 4)", code:[`int area(int w, int h) { // parameters`, `  int a = w * h;`, `  return a;          // send it back`, `}`, ``, `void setup() {`, `  Serial.begin(9600);`, `  int room = area(3, 4); // arguments`, `  Serial.println(room);`, `}`], call:7, ps:[["w", 3], ["h", 4]], body:[[1, "a = w × h = 3 × 4 = 12", [["a", 12]]], [2, "return a → 12", null]], ret:12, after:[[7, "room = 12"], [8, "prints 12"]], out:"12"},
     vars:{label:"area(width, 7)", code:[`int area(int w, int h) {`, `  int a = w * h;`, `  return a;`, `}`, ``, `void setup() {`, `  Serial.begin(9600);`, `  int width = 6;`, `  Serial.println(area(width, 7));`, `}`], call:8, ps:[["w", 6], ["h", 7]], body:[[1, "a = w × h = 6 × 7 = 42", [["a", 42]]], [2, "return a → 42", null]], ret:42, after:[[8, "println(42) prints 42"]], out:"42"},
     copy:{label:"addOne(x): copies!", code:[`void addOne(int n) {   // n is a COPY`, `  n = n + 1;`, `}`, ``, `void setup() {`, `  Serial.begin(9600);`, `  int x = 5;`, `  addOne(x);`, `  Serial.println(x);    // still 5!`, `}`], call:7, ps:[["n", 5]], body:[[1, "n = n + 1 → 6 (only the copy changes)", [["n", 6]]]], ret:null, after:[[8, "x was never changed: prints 5"]], out:"5"},
-    flash:{label:"flash(3, 150)", code:[`void flash(int times, int ms) { // void`, `  for (int i = 0; i < times; i++) {`, `    digitalWrite(9, HIGH); delay(ms);`, `    digitalWrite(9, LOW);  delay(ms);`, `  }`, `}`, ``, `void loop() {`, `  flash(3, 150);   // 3 quick flashes`, `  delay(1000);`, `}`], call:8, ps:[["times", 3], ["ms", 150]], body:[[1, "the loop runs times = 3 times", [["i", "0→2"]]], [2, "on for ms = 150 ms", null], [3, "off for ms = 150 ms", null]], ret:null, after:[[9, "back in loop(): wait 1 s"]], out:"(LED flashes 3 times)"}};
+    flash:{label:"flash(3, 150)", code:[`void flash(int times, int ms) {`, `  for (int i = 0; i < times; i++) {`, `    digitalWrite(9, HIGH); delay(ms);`, `    digitalWrite(9, LOW);  delay(ms);`, `  }`, `}`, ``, `void loop() {`, `  flash(3, 150);   // 3 quick flashes`, `  delay(1000);`, `}`], call:8, ps:[["times", 3], ["ms", 150]], body:[[1, "the loop runs times = 3 times", [["i", "0→2"]]], [2, "on for ms = 150 ms", null], [3, "off for ms = 150 ms", null]], ret:null, after:[[9, "back in loop(): wait 1 s"]], out:"(LED flashes 3 times)"}};
   let k = "area", s = 0, timer = null;
   el.innerHTML = bench("Calling a function: arguments in, a value out", `<div class="seg seg-sm pvK">${Object.keys(EX).map(x => `<button type="button" data-k="${x}" aria-selected="${x === k}">${esc(EX[x].label)}</button>`).join("")}</div>
    <div class="controls"><button class="btn primary small pvN" type="button"><span>Next step</span>${ic("chevR")}</button><button class="btn small pvA" type="button">${ic("play")}<span>Play</span></button><button class="btn small pvR" type="button">${ic("reset")}<span>Restart</span></button></div>
@@ -6270,11 +6448,11 @@ INTERACTIVES.compIdentify = function(el){
   const draw = () => { const p = P[pi], ans = p[1], path = []; let end = null;
     for (let i = 0; i < N.length; i++){ if (step <= i) break; const yes = !!ans[i]; path.push([N[i][0], yes]); if (yes){ end = N[i][0]; break; } if (i === N.length - 1) end = "ana"; }
     const vis = new Set(path.map(q => q[0])), done = end && step > path.length - 1;
-    const node = ([id, q, x, y]) => { const on = vis.has(id); return `<g><path d="M${x} ${y - 32} L${x + 190} ${y} L${x} ${y + 32} L${x - 190} ${y} Z" fill="${on ? "#fef3c7" : "var(--surface)"}" stroke="${on ? "#d97706" : "var(--line)"}" stroke-width="${on ? 3 : 2}"/>${dzT(x, y + 5, esc(q), {size:12.5, w:700})}</g>`; };
+    const node = ([id, q, x, y]) => { const on = vis.has(id); const ws = q.split(" "); let l1 = "", l2 = ""; ws.forEach(w => { if ((l1 + " " + w).length <= q.length / 2 + 4 && !l2) l1 = (l1 ? l1 + " " : "") + w; else l2 = (l2 ? l2 + " " : "") + w; }); return `<g><path d="M${x} ${y - 36} L${x + 190} ${y} L${x} ${y + 36} L${x - 190} ${y} Z" fill="${on ? "#fef3c7" : "var(--surface)"}" stroke="${on ? "#d97706" : "var(--line)"}" stroke-width="${on ? 3 : 2}"/>${dzT(x, y - 3, esc(l1), {size:12.5, w:600})}${dzT(x, y + 13, esc(l2), {size:12.5, w:600})}</g>`; };
     const res = (id) => { const [t, x, y] = R[id], on = done && end === id; return `<g><rect x="${x - 135}" y="${y - 30}" width="270" height="60" rx="12" fill="${on ? "#dcfce7" : "var(--surface)"}" stroke="${on ? "#16a34a" : "var(--line)"}" stroke-width="${on ? 3 : 2}"/><foreignObject x="${x - 128}" y="${y - 26}" width="256" height="52"><div class="ci-fo${on ? " on" : ""}">${esc(t)}</div></foreignObject></g>`; };
     const edge = (x1, y1, x2, y2, lbl, on) => `<path d="M${x1} ${y1} L${x2} ${y2}" stroke="${on ? "#d97706" : "var(--line)"}" stroke-width="${on ? 4 : 2}"/>${dzT((x1 + x2) / 2 + (y1 === y2 ? 0 : 14), (y1 + y2) / 2 + (y1 === y2 ? -6 : 4), lbl, {size:12, w:800, fill:on ? "#b45309" : "#94a3b8", a:y1 === y2 ? "middle" : "start"})}`;
     let s = `<defs>${dzMarker("ciA", "#94a3b8")}</defs>`;
-    N.forEach(([id, , x, y], i) => { const taken = path.find(q => q[0] === id); s += edge(x + 190, y, R[id][1] - 135, y, "yes", taken && taken[1]); s += edge(x, y + 32, x, (i < N.length - 1 ? N[i + 1][3] : R.ana[2]) - (i < N.length - 1 ? 32 : 30), "no", taken && !taken[1]); });
+    N.forEach(([id, , x, y], i) => { const taken = path.find(q => q[0] === id); s += edge(x + 190, y, R[id][1] - 135, y, "yes", taken && taken[1]); s += edge(x, y + 36, x, (i < N.length - 1 ? N[i + 1][3] : R.ana[2]) - (i < N.length - 1 ? 36 : 30), "no", taken && !taken[1]); });
     s += N.map(node).join("") + Object.keys(R).map(res).join("");
     $(".ciSvg", el).innerHTML = s;
     $(".ciE", el).innerHTML = done ? `<b>${esc(p[0])} → ${esc(R[end][0])}</b>. ${esc(p[3])}` : `<b>${esc(p[0])}</b>: ${path.length ? `${esc(N[path.length - 1][1])} <b>${path[path.length - 1][1] ? "Yes" : "No"}</b>…` : "Start at the top."}`;
@@ -10180,26 +10358,23 @@ function renderWho(){ $("#who").textContent = user ? `${user.givenName || user.n
 function viewHome(){
   const mods = Object.values(MODULES), done = mods.filter(m => modulePct(m) === 1).length;
   const next = mods.find(m => modulePct(m) < 1) || mods[mods.length-1];
-  $("#view").innerHTML = `<div class="home-hero"><div class="hh-text"><p class="crumb">Course home</p><h1>Welcome, ${esc(user.givenName || String(user.name || "maker").split(" ")[0])}</h1><p class="lede-mod">Sense, decide, act. Build your way from a first spark to a working prototype that matters to someone.</p><div class="hh-stats"><span><b>${mods.length}</b> modules</span><span><b>${Object.keys(LABS).length}</b> labs</span><span><b>${Object.keys(DEMOS).length}</b> guided examples</span></div></div><div class="hh-art">${heroSVG()}</div></div>
-   ${needPretest() && !bypassLocks() ? `<a class="spot continue t-cta" href="#/pretest"><span class="lbl">Step 1</span><h3>Take the pre-test</h3><span class="lbl">${TEST.items.length} questions • about ${TEST.minutes} minutes • not graded • unlocks Module 1.1</span></a>` : ""}
-   ${allModulesDone() && !tGet().cert ? `<a class="spot continue t-cta" href="${postPassed() ? "#/certificate" : "#/posttest"}"><span class="lbl">Finish line</span><h3>${postPassed() ? "Get your certificate" : "Take the post-test"}</h3><span class="lbl">${postPassed() ? "You passed the post-test" : `Pass with ${tGet().passPct}% to earn your certificate`}</span></a>` : ""}
-   <div class="bento">
-    ${needPretest() && !bypassLocks() ? `<div class="spot span4 t-wait"><span class="lbl">Then</span><h3>Module 1.1 opens after the pre-test</h3><span class="lbl">Your progress and tools are below.</span></div>` : `<a class="spot continue span4" href="#/m/${next.id}"><span class="lbl">${modulePct(next) ? "Continue where you left off" : "Start here"}</span><h3>Module ${next.id}: ${esc(next.title)}</h3>
-     <span class="lbl">about ${next.minutes} minutes • ${Math.round(modulePct(next)*100)}% done</span></a>`}
-    <div class="spot span2"><div class="big" data-tick="${done}">0</div><div class="lbl">of ${mods.length} modules complete</div></div>
-    <div class="spot span3"><div class="big" data-tick="${((prog.minutes||0)/60).toFixed(1)}" data-dec="1" data-suf=" h">0</div><div class="lbl">active learning time on this device</div></div>
-    <a class="spot span3 boardspot" href="#/lab"><div class="lbl">Workbench</div><h3>Sandboxes and labs</h3><span class="explain">${Object.keys(LABS).length} checked labs, ${Object.keys(DEMOS).length} guided examples, and free sandboxes on a virtual Arduino UNO R3.</span></a>
-    ${badgeStripHTML()}
-   </div>
-   ${COURSE.map((u, ui) => `<h2 class="unit-h" style="--uc:${UNIT_COLORS[ui % UNIT_COLORS.length]}">${esc(u.title)}</h2><p class="explain" style="margin-top:-.3em">${esc(u.blurb || "")}</p><div class="bento" style="--uc:${UNIT_COLORS[ui % UNIT_COLORS.length]}">
-    ${u.modules.map(m => `<a class="spot mod-card span3${unitLocked(u) ? " is-locked" : ""}" href="#/m/${m.id}"><span class="num">${unitLocked(u) ? lockIcon + " Locked • " : ""}Module ${m.id} • about ${m.minutes} min</span><h3>${esc(m.title)}</h3>
-      <span class="lbl">${m.sections.filter(s => !s.optional).length} sections • quiz • checkpoint ${esc(m.checkpoint.code)}</span><div class="bar"><i data-w="${Math.round(modulePct(m)*100)}"></i></div></a>`).join("")}
-   </div>`).join("")}
-   <div class="note">Press <span class="kbd">Ctrl</span> + <span class="kbd">K</span> (or tap Search) to jump to any module, section, or component. Use <b>Listen</b> on any section to hear it read aloud. The <b>Workbench and labs</b> page collects every virtual activity in one place.</div>`;
-  document.querySelectorAll("[data-tick]").forEach(el => tick(el, +el.dataset.tick, +(el.dataset.dec||0), el.dataset.suf||""));
-  document.querySelectorAll(".mod-card .bar i").forEach(i => { if (canAnim()) A(i, {width:["0%", i.dataset.w + "%"]}, {duration:1, delay:.3, ease:[.22,1,.36,1]}); i.style.width = i.dataset.w + "%"; });
-  A(document.querySelectorAll(".bento .spot"), {opacity:[0,1], y:[20,0], scale:[.98,1]}, {delay:stag(0.04), type:"spring", stiffness:260, damping:26});
-  spotify($("#view")); try { startHero(); } catch(e){}
+  const labIds = Object.keys(LABS), labsDone = labIds.filter(id => act(id) === "pass").length;
+  let E = {}; try { E = earned(); } catch(e){} const bGot = BADGES.filter(b => E[b[0]]).length;
+  const bar = (n, d) => `<span class="hm-bar" role="img" aria-label="${n} of ${d}"><i style="width:${d ? Math.round(n / d * 100) : 0}%"></i></span>`;
+  const stat = (lbl, n, d, href) => `<a class="hm-stat" href="${href}"><span class="hm-sl">${lbl}</span><span class="hm-sv num"><b>${n}</b> of ${d}</span>${bar(n, d)}</a>`;
+  const nm = esc(user.givenName || String(user.name || "maker").split(" ")[0]);
+  const waitPre = needPretest() && !bypassLocks();
+  const modRow = (u, m) => { const pct = modulePct(m), lk = unitLocked(u), st = lk ? "locked" : pct === 1 ? "done" : pct > 0 ? "doing" : "todo";
+    return `<li><a class="hm-mod ${st}" href="#/m/${m.id}"><span class="hm-ms">${st === "done" ? ic("check") : st === "locked" ? ic("lock") : `<span class="hm-dot"></span>`}</span><span class="hm-mid num">${m.id}</span><span class="hm-mt">${esc(m.title)}</span><span class="hm-mm num">${st === "doing" ? Math.round(pct * 100) + "% · " : ""}${m.minutes} min</span></a></li>`; };
+  $("#view").innerHTML = `<header class="hm-head"><p class="crumb">Course home</p><h1>Welcome back, ${nm}</h1><p class="lede-mod">Sense, decide, act. Build your way from a first spark to a working prototype that matters to someone.</p></header>
+   ${waitPre ? `<section class="hm-next card"><span class="hm-k">Step 1</span><h2>Take the pre-test</h2><p class="explain">${TEST.items.length} questions · about ${TEST.minutes} minutes · not graded. It opens Module 1.1.</p><a class="btn primary" href="#/pretest">Start the pre-test</a></section>`
+    : allModulesDone() && !tGet().cert ? `<section class="hm-next card"><span class="hm-k">Finish line</span><h2>${postPassed() ? "Get your certificate" : "Take the post-test"}</h2><p class="explain">${postPassed() ? "You passed the post-test." : `Pass with ${tGet().passPct}% to earn your certificate.`}</p><a class="btn primary" href="${postPassed() ? "#/certificate" : "#/posttest"}">${postPassed() ? "Open my certificate" : "Start the post-test"}</a></section>`
+    : `<section class="hm-next card"><span class="hm-k">${modulePct(next) ? "Continue where you left off" : "Next up"}</span><h2>Module ${next.id}: ${esc(next.title)}</h2><p class="explain">About ${next.minutes} minutes · ${Math.round(modulePct(next) * 100)}% done</p>${bar(Math.round(modulePct(next) * 100), 100)}<a class="btn primary" href="#/m/${next.id}">${modulePct(next) ? "Continue" : "Start"} module ${next.id}</a></section>`}
+   <section class="hm-stats">${stat("Modules complete", done, mods.length, "#/progress")}${stat("Labs passed", labsDone, labIds.length, "#/lab")}${stat("Badges earned", bGot, BADGES.length, "#/badges")}</section>
+   <h2 class="hm-h2">Units</h2>
+   <ol class="hm-units">${COURSE.map((u, ui) => { const ud = u.modules.filter(m => modulePct(m) === 1).length;
+     return `<li class="hm-unit"><div class="hm-uh"><span class="hm-sw" style="--uc:${UNIT_COLORS[ui % UNIT_COLORS.length]}"></span><h3>${esc(u.title)}</h3><span class="hm-up num">${ud} of ${u.modules.length}</span></div><p class="explain">${esc(u.blurb || "")}</p><ul class="hm-mods">${u.modules.map(m => modRow(u, m)).join("")}</ul></li>`; }).join("")}</ol>
+   <p class="explain hm-tip">Press <span class="kbd">Ctrl</span> + <span class="kbd">K</span> to search any module or component. Every virtual activity is collected on <a href="#/lab">Workbench and labs</a>.</p>`;
 }
 
 let pendingAnchor = null, currentSection = "";
@@ -10211,7 +10386,7 @@ function viewModule(id){
   v.innerHTML = `<div class="mod-layout"><div>
    <div class="mod-hero" style="--uc:${UNIT_COLORS[COURSE.indexOf(u) % UNIT_COLORS.length]}"><p class="crumb"><span class="u-chip">${esc(u.title.split(":")[0])}</span> Module ${id}</p><h1>${esc(m.title)}</h1>
     <div class="meta"><span>about ${m.minutes} minutes</span><span>Checkpoint: ${esc(m.checkpoint.code)}</span><span id="pctLbl">${Math.round(pct*100)}% done</span></div>
-    ${canPresent() ? `<div class="pres-launch-row"><button class="btn primary small pres-launch" type="button" onclick="startPresenting('${id}')" title="Show this module as slides on a projector">${ic("play")}<span>Present to class</span></button><span class="explain">Admins only · arrow keys to move · P for presenter view</span></div>` : ""}
+    ${canPresent() ? `<div class="pres-launch-row"><button class="btn small pres-launch" type="button" onclick="startPresenting('${id}')" title="Show this module as slides on a projector">${ic("play")}<span>Present to class</span></button><span class="explain">Admins only · arrow keys to move · P for presenter view</span></div>` : ""}
     <div class="ring-big">${ring(pct, 64)}</div></div>
    ${m.intro ? `<p class="lede-mod">${m.intro}</p>` : ""}
    <div class="objectives"><b>By the end of this module, you will be able to:</b><ul>${m.objectives.map(o=>`<li>${esc(o)}</li>`).join("")}</ul></div>
